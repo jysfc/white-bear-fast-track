@@ -11424,7 +11424,6 @@ textarea {
   -moz-box-shadow: none;
   box-shadow: none;
   resize: none;
-  /*remove the resize handle on the bottom right*/
 }
 
 /*# sourceMappingURL=dist.css.map */
