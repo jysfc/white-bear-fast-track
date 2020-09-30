@@ -22,10 +22,14 @@ Example:
    min-height: 100vh;
 }
 */
+.text-brand {
+   font-family: $font-family-brand;
+}
 
 .btn-link {
    font-weight: $font-weight-bold;
-   padding: 0;
+   padding-left: 0;
+   padding-right: 0;
    border: none;
 }
 .btn-group .btn {
@@ -42,4 +46,11 @@ Example:
 .card-body.bg-secondary {
    border-bottom-left-radius: $border-radius;
    border-bottom-right-radius: $border-radius;
+}
+.tab-active {
+   background-color: $dark;
+   border: $border-width $dark solid;
+}
+.tab-separator {
+   border-left: 1px $dark solid;
 }
