@@ -7,11 +7,21 @@
       <link href="/style/dist.css" rel="stylesheet" />
    </head>
    <body>
+      <!-- overlay -->
       <div
-         class="bg-success w-100 lead d-flex justify-content-center fixed-top"
+         class="bg-success w-100 lead justify-content-center fixed-top d-none"
+         id="overlay-success"
       >
          <img src="/icons/success.svg" width="32px" />
          <p class="d-inline py-4 ml-2">Card created!</p>
+      </div>
+
+      <div
+         class="bg-danger w-100 lead justify-content-center fixed-top d-none"
+         id="overlay-error"
+      >
+         <img src="/icons/error.svg" width="32px" />
+         <p class="d-inline py-4 ml-2">Oops! Our bad. Please try again.</p>
       </div>
 
       <div class="container">
@@ -30,16 +40,19 @@
                   role="navigation"
                   aria-label="navigation"
                >
-                  <button type="button" class="btn btn-secondary tab-active">
-                     Create new
-                  </button>
-                  <button type="button" class="btn btn-secondary tab-separator">
-                     Review
-                  </button>
-                  <button type="button" class="btn btn-secondary tab-separator">
+                  <a
+                     href="/create-imagery.html"
+                     class="btn btn-secondary tab-active"
+                     >Create new</a
+                  >
+                  <a href="/index.html" class="btn btn-secondary tab-separator"
+                     >Review</a
+                  >
+                  <button class="btn btn-secondary tab-separator">
                      All cards
                   </button>
                </div>
+
                <!-- Comment above Card -->
                <p class="text-center lead text-muted my-2">
                   Add memorable imagery
@@ -65,21 +78,33 @@
                      only differ in their grammar,.
                   </div>
                </div>
+
                <!-- Word count -->
-               <p class="float-right mt-2 mb-5">0/240</p>
+               <p class="float-right mt-2 mb-5 text-muted">0/240</p>
                <div class="clearfix"></div>
+
                <!-- buttons -->
-               <button class="btn btn-link">Back to answer</button>
-               <button class="btn btn-primary btn-lg ml-4 float-right">
+               <button class="btn btn-link" id="back-to-answer">
+                  Back to answer
+               </button>
+
+               <button
+                  class="btn btn-primary btn-lg ml-4 float-right"
+                  id="save-card"
+               >
                   <img
                      src="/icons/save.svg"
                      width="20px"
                      style="margin-bottom: 3px; margin-right: 4px"
-                  />
-                  Save
+                  />Save
                </button>
             </div>
          </div>
       </div>
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+         defer
+      ></script>
+      <script src="/script.js" defer></script>
    </body>
 </html>
