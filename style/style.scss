@@ -35,3 +35,11 @@ Example:
    color: $white;
    font-family: $font-family-serif;
 }
+.card-body.bg-primary {
+   border-top-left-radius: $border-radius;
+   border-top-right-radius: $border-radius;
+}
+.card-body.bg-secondary {
+   border-bottom-left-radius: $border-radius;
+   border-bottom-right-radius: $border-radius;
+}
