@@ -11,3 +11,9 @@ $("#back-to-answer").click(function () {
 $("#show-delete").click(function () {
    $("#delete-button").removeClass("d-none");
 });
+
+//sign up button
+$("#sign-up-button").click(function () {
+   $("#new-member-card").addClass("d-none");
+   $("#create-account-card").removeClass("d-none");
+});

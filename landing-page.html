@@ -9,71 +9,142 @@
       <!-- Background -->
       <div class="background-image">
          <div class="container">
-            <!-- Heading -->
             <div class="row mb-8">
-               <div class="col-5 col-sm-4 col-xl-2 mt-6">
-                  <img src="/images/logo-landing.png" class="float-right" />
+               <!-- Heading -->
+               <div
+                  class="col-5 col-sm-4 col-xl-2 mt-6 branding-margin float-right"
+               >
+                  <img src="/images/logo-landing.png" alt="White Bear Logo" />
                </div>
                <div class="col-7 col-sm-8 col-xl-10 mt-6">
-                  <h1 class="d-inline text-brand text-light">White Bear</h1>
+                  <h1 class="d-inline text-brand text-white">White Bear</h1>
                </div>
             </div>
 
-            <div class="row mt-md-6 mt-xl-8 mt-4">
-               <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-12">
-                  <div class="row">
-                     <!-- Nice to meet you card -->
-                     <div class="col-xl-5 col-sm-6 col-12 mb-6">
-                        <div class="card">
-                           <div class="card-body text-dark text-sans">
-                              <h2 class="card-title text-serif">
-                                 Nice to meet you
-                              </h2>
-                              <p class="card-text lead">
-                                 Sign up for White Bear. Free forever.
-                              </p>
-                              <button class="btn btn-success btn-block">
-                                 Sign up
-                              </button>
-                           </div>
+            <div class="row justify-content-center">
+               <!-- new member card -->
+               <div class="col-12 col-lg-5">
+                  <div class="card">
+                     <div class="card-body text-dark">
+                        <h2>Nice to meet you</h2>
+                        <p class="card-text font-sans-serif lead mt-3">
+                           Sign up for White Bear. Free forever.
+                        </p>
+
+                        <!-- new member card button -->
+                        <div id="new-member-card">
+                           <a
+                              href="/landing-page-sign-up.html"
+                              class="btn btn-success btn-lg font-sans-serif mt-5"
+                              style="width: 100%"
+                              id="sign-up-button"
+                           >
+                              Sign up
+                           </a>
                         </div>
-                     </div>
-                     <!-- Welcome back card -->
-                     <div class="col-xl-5 offset-xl-2 col-sm-6 col-12 mb-6">
-                        <div class="card">
-                           <div class="card-body text-dark text-sans">
-                              <h2 class="card-title text-serif">
-                                 Welcome back
-                              </h2>
-                              <p class="mb-4">
-                                 Log in with your email address and password.
-                              </p>
-                              <label for="login-email-input"
+
+                        <!-- create account card 
+                        <div id="create-account-card">
+                           <p class="text-blue font-sans-serif mt-2 mb-5">
+                              Let's get you signed up.
+                           </p>
+                           <div class="form-group">
+                              <label
+                                 for="sign-up-email-input"
+                                 class="text-muted lead font-sans-serif"
                                  >Email address</label
                               >
                               <input
                                  type="email"
-                                 class="form-control mb-2"
-                                 id="login-email-input"
+                                 class="form-control"
+                                 id="sign-up-email-input"
                               />
-                              <div class="mb-4"></div>
-                              <label for="login-password-input">Password</label>
+                              <p
+                                 class="text-danger d-none"
+                                 id="sign-up-email-error"
+                              ></p>
+                           </div>
+                           <div class="form-group">
+                              <label
+                                 for="sign-up-password-input"
+                                 class="text-muted lead font-sans-serif"
+                                 >Create a password</label
+                              >
+                              <p class="text-muted mt-n2">
+                                 Must be at least 9 characters.
+                              </p>
                               <input
                                  type="password"
-                                 class="form-control mb-2"
-                                 id="login-password-input"
+                                 class="form-control"
+                                 id="sign-up-password-input"
                               />
-                              <div class="mb-5"></div>
-                              <button class="btn btn-success float-right">
-                                 Log in
-                              </button>
+                              <p
+                                 class="text-danger"
+                                 id="sign-up-password-error"
+                              ></p>
                            </div>
+
+                           <button
+                              class="float-right btn btn-success btn-lg font-sans-serif"
+                              style="width: 100%"
+                              id="lets-go"
+                           >
+                              Let's go!
+                           </button>
+                        </div> -->
+                     </div>
+                  </div>
+               </div>
+
+               <!-- return card -->
+               <div class="col-12 col-lg-5">
+                  <div class="card mt-8 mt-lg-0 ml-lg-8">
+                     <div class="card-body text-dark">
+                        <h2>Welcome back</h2>
+                        <p class="font-sans-serif mt-3 mb-5">
+                           Log in with your email address and password.
+                        </p>
+
+                        <div class="form-group">
+                           <label
+                              for="email-input"
+                              class="text-muted lead font-sans-serif"
+                              >Email address</label
+                           >
+                           <input
+                              type="email"
+                              class="form-control"
+                              id="email-input"
+                           />
                         </div>
+                        <div class="form-group">
+                           <label
+                              for="password-input"
+                              class="text-muted lead font-sans-serif"
+                              >Password</label
+                           >
+                           <input
+                              type="email"
+                              class="form-control"
+                              id="password-input"
+                           />
+                        </div>
+                        <button
+                           id="login-button"
+                           class="float-right btn btn-success btn-lg font-sans-serif"
+                        >
+                           Log in
+                        </button>
                      </div>
                   </div>
                </div>
             </div>
          </div>
       </div>
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+         defer
+      ></script>
+      <script src="/script.js" defer></script>
    </body>
 </html>
