@@ -14,14 +14,15 @@ Example:
    </div>
 </div>
 */
-/* .background-image {
-   /* https://css-tricks.com/perfect-full-page-background-image/
-   background: url("../images/background-landing.jpg") no-repeat center center
+
+// https://css-tricks.com/perfect-full-page-background-image/
+.background-image {
+   background: url("//images/background-landing.jpg") no-repeat center center
       fixed;
    background-size: cover;
    min-height: 100vh;
 }
-*/
+
 .text-brand {
    font-family: $font-family-brand;
 }
