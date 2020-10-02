@@ -13,8 +13,7 @@ $("#show-delete").click(function () {
 });
 
 //sign up button
-$("#new-member-card").click(function () {
+$("#sign-up-button").click(function () {
    $("#create-account-card").toggleClass("d-none");
-   $("#sign-up-button").toggleClass();
-   $("#sign-up-button").toggleClass();
+   $("#sign-up-button").toggleClass("d-none");
 });
