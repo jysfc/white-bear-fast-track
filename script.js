@@ -31,10 +31,8 @@ $("#create-imagery-input").keydown(function (e) {
          console.log("You have entered negative territory!")
          imageryChartsCount = 0;
       } 
-   } else if (key === 16) {
-      console.log("Shift was pressed.");
-   } else if (key === 18) {
-      console.log("Alt was pressed.");
+   } else if (key === 16 || 18 || 46 || 35 || 36 || 20 ) {
+      console.log("This doesn't count in the character counter.");
    } else {
    // else, increment the count
    console.log("The user has pressed any other key!");
