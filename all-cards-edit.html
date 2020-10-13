@@ -47,10 +47,10 @@
                <!-- Card -->
                <div class="card">
                   <div class="card-body bg-primary lead">
-                     <textarea rows="11" class="d-md-none" autofocus></textarea>
+                     
                      <textarea
                         rows="6"
-                        class="d-none d-md-block"
+                        id="top-edit-input"
                         autofocus
                      ></textarea>
                   </div>
@@ -58,10 +58,10 @@
 
                <div class="card">
                   <div class="card-body bg-secondary lead">
-                     <textarea rows="11" class="d-md-none" autofocus></textarea>
+                     
                      <textarea
                         rows="6"
-                        class="d-none d-md-block"
+                        id="bottom-edit-input"
                         autofocus
                      ></textarea>
                   </div>
@@ -69,9 +69,9 @@
 
                <!-- Word count -->
                <p class="float-right mt-2 mb-5 text-muted d-flex ml-4">
-                  Bottom: 0/240
+                  Bottom: <span id="edit-bottom-char-count">0</span>/240
                </p>
-               <p class="float-right mt-2 mb-5 text-muted">Top: 0/240</p>
+               <p class="float-right mt-2 mb-5 text-muted">Top: <span id="edit-top-char-count">0</span>/240</p>
                <div class="clearfix"></div>
 
                <!-- buttons -->
