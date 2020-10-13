@@ -19,12 +19,30 @@ $("#sign-up-button").click(function () {
 });
 
 // imagery characters count
-let createImageryInputCharsCount = 0;
-$("#create-imagery-input").keypress(function () {
-   console.log("let's add 1!"); //double quotes surround a string!
-   createImageryInputCharsCount++;
-   console.log("Total inputted chars: ",createImageryInputCharsCount);
-   $("#imagery-char-count").html(createImageryInputCharsCount);
+let imageryChartsCount = 0;
+$("#create-imagery-input").keydown(function (e) {
+   const key = e.which
+   console.log("key inputted: ",key);
+   // if the key the user has pressed is backspace, decrement the count
+   if(key === 8) {
+      console.log("The user has pressed backspace!");
+      imageryChartsCount--;
+      if (imageryChartsCount < 0) {
+         console.log("You have entered negative territory!")
+         imageryChartsCount = 0;
+      } 
+   } else if (key === 16) {
+      console.log("Shift was pressed.");
+   } else if (key === 18) {
+      console.log("Alt was pressed.");
+   } else {
+   // else, increment the count
+   console.log("The user has pressed any other key!");
+   imageryChartsCount++;
+}
+
+   console.log("Total inputted chars: ",imageryChartsCount);
+   $("#imagery-char-count").html(imageryChartsCount);
 });
 
 // answer characters count
