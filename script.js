@@ -19,48 +19,66 @@ $("#sign-up-button").click(function () {
 });
 
 // imagery characters count
-$("imagery-input").keyup(function (e) {
-   console.log("Event: ",e);
+$("#imagery-input").keyup(function (e) {
+   console.log("Event: ", e);
 
    // get the text from textarea
    const text = e.target.value;
-   const username = `Jay`;
-   console.log(`${username} inputted: ${text}`);
-   
+   console.log(`The user inputted: ${text}`);
+
    // check the length of the text
    const textLength = text.length;
-   console.log(`Total inputted chars: ${textLength}`);
+   console.log(`total inputted chars: ${textLength}`);
 
-   // update character counter on page
+   // update the character counter on the page
    $("#imagery-char-count").html(textLength);
-
-   // over max characters
-   
 });
 
 // answer characters count
-let createAnswerInputCharsCount = 0;
-$("#create-answer-input").keypress(function () {
-   console.log("let's add 1!"); //double quotes surround a string!
-   createAnswerInputCharsCount++;
-   console.log("Total inputted chars: ",createAnswerInputCharsCount);
-   $("#answer-char-count").html(createAnswerInputCharsCount);
-});
+$("#answer-input").keyup(function (e) {
+   console.log("Event: ", e);
+   
+      // get the text from textarea
+      const text = e.target.value;
+      console.log(`The user inputted: ${text}`);
+   
+      // check the length of the text
+      const textLength = text.length;
+      console.log(`total inputted chars: ${textLength}`);
+   
+      // update the character counter on the page
+      $("#answer-char-count").html(textLength);
+   });
 
 // all card top edit characters count
-let EditTopInputCharsCount = 0;
-$("#top-edit-input").keypress(function () {
-   console.log("let's add 1!"); //double quotes surround a string!
-   EditTopInputCharsCount++;
-   console.log("Total inputted chars: ",EditTopInputCharsCount);
-   $("#edit-top-char-count").html(EditTopInputCharsCount);
-});
+$("#top-edit-input").keyup(function (e) {
+   console.log("Event: ", e);
+   
+      // get the text from textarea
+      const text = e.target.value;
+      console.log(`The user inputted: ${text}`);
+   
+      // check the length of the text
+      const textLength = text.length;
+      console.log(`total inputted chars: ${textLength}`);
+   
+      // update the character counter on the page
+      $("#edit-top-char-count").html(textLength);
+   });
+
 
 // all card bottom edit characters count
-let EditBottomInputCharsCount = 0;
-$("#bottom-edit-input").keypress(function () {
-   console.log("let's add 1!"); //double quotes surround a string!
-   EditBottomInputCharsCount++;
-   console.log("Total inputted chars: ",EditBottomInputCharsCount);
-   $("#edit-bottom-char-count").html(EditBottomInputCharsCount);
-});
+$("#bottom-edit-input").keyup(function (e) {
+   console.log("Event: ", e);
+   
+      // get the text from textarea
+      const text = e.target.value;
+      console.log(`The user inputted: ${text}`);
+   
+      // check the length of the text
+      const textLength = text.length;
+      console.log(`total inputted chars: ${textLength}`);
+   
+      // update the character counter on the page
+      $("#edit-bottom-char-count").html(textLength);
+   });
