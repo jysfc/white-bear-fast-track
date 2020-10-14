@@ -60,112 +60,83 @@ $("#imagery-input").keyup(function () {
 
 // answer characters count
 $("#answer-input").keyup(function () {
-   
-// get the text from textarea
-const text = $("#answer-input").val()
-console.log(`The user inputted: ${text}`);
-   
-// check the length of the text
-const textLength = text.length;
-console.log(`total inputted chars: ${textLength}`);
-   
-// update the character counter on the page
-$("#answer-char-count").html(textLength);
       
-// if text length is greater than 240 
-if (text.length <= 240 && text.length > 0) {
-$("#next").removeClass("disabled");
-   
-// add text danger class to char counter
-$("#answer-characters").removeClass("text-danger");
-$("#answer-characters").addClass("text-muted");
-   
-// if text length is zero or greater than 240 
-} else if (text.length > 240) {
-// add disabled class to save btn 
-$("#next").addClass("disabled");
-$("#answer-characters").removeClass("text-muted");
-$("#answer-characters").addClass("text-danger");
-   
-} else if (text.length === 0) {
-// add disabled class to save btn 
-$("#next").addClass("disabled");
-$("#answer-characters").removeClass("text-danger");
-$("#answer-characters").addClass("text-muted");
-}
-});
+   // get the text from textarea
+   const text = $("#answer-input").val()
+   console.log(`The user inputted: ${text}`);
+      
+   // check the length of the text
+   const textLength = text.length;
+   console.log(`total inputted chars: ${textLength}`);
+      
+   // update the character counter on the page
+   $("#answer-char-count").html(textLength);
+         
+   // if text length is greater than 240 
+   if (text.length <= 240 && text.length > 0) {
+   $("#next").removeClass("disabled");
+      
+   // add text danger class to char counter
+   $("#answer-characters").removeClass("text-danger");
+   $("#answer-characters").addClass("text-muted");
+      
+   // if text length is zero or greater than 240 
+   } else if (text.length > 240) {
+   // add disabled class to save btn 
+   $("#next").addClass("disabled");
+   $("#answer-characters").removeClass("text-muted");
+   $("#answer-characters").addClass("text-danger");
+      
+   } else if (text.length === 0) {
+   // add disabled class to save btn 
+   $("#next").addClass("disabled");
+   $("#answer-characters").removeClass("text-danger");
+   $("#answer-characters").addClass("text-muted");
+   }
+   });
 
-// all card top edit characters count
-$("#top-edit-input").keyup(function () {
-   
-// get the text from textarea
-const text = $("#top-edit-input").val()
-console.log(`The user inputted: ${text}`);
-         
-// check the length of the text
-const textLength = text.length;
-console.log(`total inputted chars: ${textLength}`);
-         
-// update the character counter on the page
-$("#edit-top-char-count").html(textLength);
-            
-// if text length is greater than 240 
-if (text.length <= 240 && text.length > 0) {
-$("#save-card").removeClass("disabled");
-         
-// add text danger class to char counter
-$("#top-edit-characters").removeClass("text-danger");
-$("#top-edit-characters").addClass("text-muted");
-         
-// if text length is zero or greater than 240 
-} else if (text.length > 240) {
-// add disabled class to save btn 
-$("#save-card").addClass("disabled");
-$("#top-edit-characters").removeClass("text-muted");
-$("#top-edit-characters").addClass("text-danger");
-         
-} else if (text.length === 0) {
-// add disabled class to save btn 
-$("#save-card").addClass("disabled");
-$("#top-edit-characters").removeClass("text-danger");
-$("#top-edit-characters").addClass("text-muted");
-}
-});
+// all card edit characters count
+$("#top-edit-input, #bottom-edit-input").keyup(function () {
+
+   // get the text from textarea
+   const topInput = $("#top-edit-input").val();
+   const bottomInput = $("#bottom-edit-input").val();
+
+   // update the character counter on the page
+   $("#top-edit-char-count").html(topInput.length);
+   $("#bottom-edit-char-count").html(bottomInput.length);
 
 
-// all card bottom edit characters count
-$("#bottom-edit-input").keyup(function () {
-   
-// get the text from textarea
-const text = $("#bottom-edit-input").val()
-console.log(`The user inputted: ${text}`);
-               
-// check the length of the text
-const textLength = text.length;
-console.log(`total inputted chars: ${textLength}`);
-               
-// update the character counter on the page
-$("#edit-bottom-char-count").html(textLength);
-                  
-// if text length is greater than 240 
-if (text.length <= 240 && text.length > 0) {
-$("#save-card").removeClass("disabled");
-               
-// add text danger class to char counter
-$("#bottom-edit-characters").removeClass("text-danger");
-$("#bottom-edit-characters").addClass("text-muted");
-               
-// if text length is zero or greater than 240 
-} else if (text.length > 240) {
-// add disabled class to save btn 
-$("#save-card").addClass("disabled");
-$("#bottom-edit-characters").removeClass("text-muted");
-$("#bottom-edit-characters").addClass("text-danger");
-               
-} else if (text.length === 0) {
-// add disabled class to save btn 
-$("#save-card").addClass("disabled");
-$("#bottom-edit-characters").removeClass("text-danger");
-$("#bottom-edit-characters").addClass("text-muted");
-}
+   // if text length is greater than 240 
+   if (topInput.length <= 240 && topInput.length >= 0) {
+
+   // add text danger class to char counter
+   $("#top-edit-characters").removeClass("text-danger");
+   } else {
+      $("#top-edit-characters").addClass("text-danger");
+   }
+
+   // if text length is greater than 240 
+   if (bottomInput.length <= 240 && bottomInput.length >= 0) {
+
+   // add text danger class to char counter
+      $("#bottom-edit-characters").removeClass("text-danger");
+   } else {
+      $("#bottom-edit-characters").addClass("text-danger");
+   }
+
+   // if text length is zero or greater than 240 
+   if (
+      topInput.length > 0 &&
+      topInput.length <= 240 &&
+      bottomInput.length > 0 &&
+      bottomInput.length <= 240
+   ) {
+   $("#edit-save").removeClass("disabled");
+   } else {
+
+   // add disabled class to save btn 
+   $("#edit-save").addClass("disabled");
+   }
+
 });
