@@ -14,11 +14,10 @@ $("#show-delete").click(function () {
 });
 
 // sign up button
-$("#sign-up-button").click(function () {
-   $("#create-account-card").toggleClass("d-none");
-   $("#sign-up-button").toggleClass("d-none");
-});
-
+// $("#sign-up-button").click(function () {
+//    $("#create-account-card").toggleClass("d-none");
+//    $("#sign-up-button").toggleClass("d-none");
+// });
 
 // imagery characters count
 $("#imagery-input").keyup(function () {
@@ -138,5 +137,46 @@ $("#top-edit-input, #bottom-edit-input").keyup(function () {
    // add disabled class to save btn 
    $("#edit-save").addClass("disabled");
    }
+
+});
+
+// lets go button
+$("#lets-go").click(function () {
+   //email input
+   const emailInput = $("#sign-up-email-input").val();
+   const email = emailInput.trim().toLowerCase();
+   const password = $("#sign-up-password-input").val();
+   // email error msg
+   if (email.length === 0) {
+      $("#sign-up-email-input").addClass("is-invalid");
+      $("#sign-up-email-error").removeClass("d-none");
+      $("#sign-up-email-error").html("Please enter your email address.");
+   } else {
+   // email success msg
+      $("#sign-up-email-input").removeClass("is-invalid");
+      $("#sign-up-email-input").addClass("is-valid");
+      $("#sign-up-email-error").addClass("d-none");
+   }
+
+   // password input
+   
+
+   if (password.length === 0) {
+         $("#sign-up-password-input").addClass("is-invalid");
+         $("#sign-up-password-error").removeClass("d-none");
+         $("#sign-up-password-error").html("Please enter your password.");
+   } else if  (password.length <= 9) {
+         // password success msg
+         $("#sign-up-password-input").addClass("is-invalid");
+         $("#sign-up-password-error").removeClass("d-none");
+         $("#sign-up-password-error").html("Your password must be at least 9 characters.");
+         } else {
+      // password success msg
+         $("#sign-up-password-input").removeClass("is-invalid");
+         $("#sign-up-password-input").addClass("is-valid");
+         $("#sign-up-password-error").addClass("d-none");
+      }
+
+
 
 });
