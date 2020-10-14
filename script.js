@@ -19,28 +19,23 @@ $("#sign-up-button").click(function () {
 });
 
 // imagery characters count
-let imageryChartsCount = 0;
-$("#create-imagery-input").keydown(function (e) {
-   const key = e.which
-   console.log("key inputted: ",key);
-   // if the key the user has pressed is backspace, decrement the count
-   if(key === 8) {
-      console.log("The user has pressed backspace!");
-      imageryChartsCount--;
-      if (imageryChartsCount < 0) {
-         console.log("You have entered negative territory!")
-         imageryChartsCount = 0;
-      } 
-   } else if (key === 16 || 18 || 46 || 35 || 36 || 20 ) {
-      console.log("This doesn't count in the character counter.");
-   } else {
-   // else, increment the count
-   console.log("The user has pressed any other key!");
-   imageryChartsCount++;
-}
+$("imagery-input").keyup(function (e) {
+   console.log("Event: ",e);
 
-   console.log("Total inputted chars: ",imageryChartsCount);
-   $("#imagery-char-count").html(imageryChartsCount);
+   // get the text from textarea
+   const text = e.target.value;
+   const username = `Jay`;
+   console.log(`${username} inputted: ${text}`);
+   
+   // check the length of the text
+   const textLength = text.length;
+   console.log(`Total inputted chars: ${textLength}`);
+
+   // update character counter on page
+   $("#imagery-char-count").html(textLength);
+
+   // over max characters
+   
 });
 
 // answer characters count
