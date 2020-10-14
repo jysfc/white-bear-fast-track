@@ -1,3 +1,4 @@
+const maxChar = 240;
 // overlay
 $("#save-card").click(function () {
    $("#overlay-success").toggleClass("d-flex d-none");
@@ -26,12 +27,13 @@ $("#imagery-input").keyup(function (e) {
    const text = e.target.value;
    console.log(`The user inputted: ${text}`);
 
-   // check the length of the text
+   //check the length of the text
    const textLength = text.length;
    console.log(`total inputted chars: ${textLength}`);
 
    // update the character counter on the page
    $("#imagery-char-count").html(textLength);
+   
 });
 
 // answer characters count
@@ -82,3 +84,4 @@ $("#bottom-edit-input").keyup(function (e) {
       // update the character counter on the page
       $("#edit-bottom-char-count").html(textLength);
    });
+
