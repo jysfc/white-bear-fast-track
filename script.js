@@ -13,10 +13,10 @@ $("#show-delete").click(function () {
 });
 
 // sign up button
-// $("#sign-up-button").click(function () {
-//    $("#create-account-card").toggleClass("d-none");
-//    $("#sign-up-button").toggleClass("d-none");
-// });
+$("#sign-up-button").click(function () {
+   $("#create-account-card").toggleClass("d-none");
+   $("#sign-up-button").toggleClass("d-none");
+});
 
 // imagery characters count
 $("#imagery-input").keyup(function () {
@@ -131,7 +131,7 @@ $("#lets-go").click(function () {
    const indexOfEmail = lowerCaseEmail.indexOf(delimiter); //numbers
    console.log(`index of ${indexOfEmail}.`);
    const localEmail = emailInput.slice(0, indexOfEmail);
-
+   console.log(`Here are the most insecure passwords:`, mostInsecurePasswords);
    if (lowerCaseEmail.length === 0) {
       // email error msg
       $("#sign-up-email-input").addClass("is-invalid");
