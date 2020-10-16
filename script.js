@@ -13,10 +13,10 @@ $("#show-delete").click(function () {
 });
 
 // sign up button
-$("#sign-up-button").click(function () {
-   $("#create-account-card").toggleClass("d-none");
-   $("#sign-up-button").toggleClass("d-none");
-});
+// $("#sign-up-button").click(function () {
+//    $("#create-account-card").toggleClass("d-none");
+//    $("#sign-up-button").toggleClass("d-none");
+// });
 
 // imagery characters count
 $("#imagery-input").keyup(function () {
@@ -131,7 +131,7 @@ $("#lets-go").click(function () {
    const indexOfEmail = lowerCaseEmail.indexOf(delimiter); //numbers
    console.log(`index of ${indexOfEmail}.`);
    const localEmail = emailInput.slice(0, indexOfEmail);
-   console.log(`Here are the most insecure passwords:`, mostInsecurePasswords);
+
    if (lowerCaseEmail.length === 0) {
       // email error msg
       $("#sign-up-email-input").addClass("is-invalid");
@@ -144,12 +144,12 @@ $("#lets-go").click(function () {
       $("#sign-up-email-error").addClass("d-none");
    }
    if (passwordInput.length === 0) {
-      // password input
+      // password input. field blank
       $("#sign-up-password-input").addClass("is-invalid");
       $("#sign-up-password-error").removeClass("d-none");
       $("#sign-up-password-error").html("Please enter your password.");
    } else if (passwordInput.length < 9) {
-      // password error msg
+      // password error msg. less than 9
       $("#sign-up-password-input").addClass("is-invalid");
       $("#sign-up-password-error").removeClass("d-none");
       $("#sign-up-password-error").html(
@@ -162,11 +162,23 @@ $("#lets-go").click(function () {
       $("#sign-up-password-error").addClass("d-none");
    }
    if (passwordInput.includes(localEmail) && localEmail.length >= 4) {
-      // pw match email error
+      // pw match email error. contain local part
       $("#sign-up-password-input").addClass("is-invalid");
       $("#sign-up-password-error").removeClass("d-none");
       $("#sign-up-password-error").html(
          "All or part of your email address cannot be used in your password."
       );
    }
+
+   if (mostInsecurePasswords.includes(passwordInput.toLowerCase())) {
+      // password contain insecure password
+      $("#sign-up-password-input").addClass("is-invalid");
+      $("#sign-up-password-error").removeClass("d-none");
+      $("#sign-up-password-error").html(
+         `Your password contains a commonly used password, "${passwordInput.toLowerCase()}" and can be easily discovered by attackers. Please use something else.`
+      );
+   }
+
+   const mostInsecurePassword = [...unacceptablePasswords];
+   console.log(`Here are the most insecure passwords:`, mostInsecurePassword);
 });
