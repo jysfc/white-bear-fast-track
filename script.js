@@ -169,7 +169,6 @@ $("#lets-go").click(function () {
          "All or part of your email address cannot be used in your password."
       );
    }
-
    if (mostInsecurePasswords.includes(passwordInput.toLowerCase())) {
       // password contain insecure password
       $("#sign-up-password-input").addClass("is-invalid");
@@ -178,9 +177,11 @@ $("#lets-go").click(function () {
          `Your password contains a commonly used password, "${passwordInput.toLowerCase()}" and can be easily discovered by attackers. Please use something else.`
       );
    }
-   console.log(
-      `Here are the most insecure passwords:`,
-      mostInsecurePasswords,
+   // combining two array
+   const unacceptablePasswords = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
+   // removing subarrays
+   const allFlatPasswords = unacceptablePasswords.flat();
+   console.log(`Here are the most insecure passwords:`, allFlatPasswords);
 });
