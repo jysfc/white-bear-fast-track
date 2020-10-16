@@ -178,7 +178,9 @@ $("#lets-go").click(function () {
          `Your password contains a commonly used password, "${passwordInput.toLowerCase()}" and can be easily discovered by attackers. Please use something else.`
       );
    }
-
-   const mostInsecurePassword = [...unacceptablePasswords];
-   console.log(`Here are the most insecure passwords:`, mostInsecurePassword);
+   console.log(
+      `Here are the most insecure passwords:`,
+      mostInsecurePasswords,
+      secondMostInsecurePasswords
+   );
 });
