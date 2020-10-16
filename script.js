@@ -183,5 +183,37 @@ $("#lets-go").click(function () {
    );
    // removing subarrays
    const allFlatPasswords = unacceptablePasswords.flat();
-   console.log(`Here are the most insecure passwords:`, allFlatPasswords);
+
+   // removing dupe
+   const allUniqPasswords = [...new Set(allFlatPasswords)];
+
+   // removing pw skywalker
+   const firstSlicePasswords = allUniqPasswords.slice(
+      0,
+      allUniqPasswords.indexOf("skywalker")
+   );
+   console.log(`here are the first set of passwords: \n`, firstSlicePasswords);
+
+   const secondSlicePasswords = allUniqPasswords.slice(
+      allUniqPasswords.indexOf("1010101010"),
+      allUniqPasswords.indexOf("obama2016")
+   );
+   console.log(
+      `here are the second set of passwords: \n`,
+      secondSlicePasswords
+   );
+
+   const thirdSlicePasswords = allUniqPasswords.slice(
+      allUniqPasswords.indexOf("mypassword")
+   );
+   console.log(`here are the third set of passwords: \n`, thirdSlicePasswords);
+
+   const allCleanedUpUnacceptablePasswords = firstSlicePasswords.concat(
+      secondSlicePasswords,
+      thirdSlicePasswords
+   );
+   console.log(
+      `Final list of unacceptable passwords:`,
+      allCleanedUpUnacceptablePasswords
+   );
 });
