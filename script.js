@@ -178,11 +178,11 @@ $("#lets-go").click(function () {
       );
    }
    // combining two array
-   const unacceptablePasswords = mostInsecurePasswords.concat(
+   const combinedInsecurePasswords = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
    // removing subarrays
-   const allFlatPasswords = unacceptablePasswords.flat();
+   const allFlatPasswords = combinedInsecurePasswords.flat();
 
    // removing dupe
    const allUniqPasswords = [...new Set(allFlatPasswords)];
@@ -208,12 +208,9 @@ $("#lets-go").click(function () {
    );
    console.log(`here are the third set of passwords: \n`, thirdSlicePasswords);
 
-   const allCleanedUpUnacceptablePasswords = firstSlicePasswords.concat(
+   const unacceptablePasswords = firstSlicePasswords.concat(
       secondSlicePasswords,
       thirdSlicePasswords
    );
-   console.log(
-      `Final list of unacceptable passwords:`,
-      allCleanedUpUnacceptablePasswords
-   );
+   console.log(`Final list of unacceptable passwords:`, unacceptablePasswords);
 });
