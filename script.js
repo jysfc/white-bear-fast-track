@@ -178,16 +178,16 @@ $("#lets-go").click(function () {
       );
    }
    // combining two array
-   const combinedInsecurePasswords = mostInsecurePasswords.concat(
+   const mostAndSecondInsecurePasswords = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
    // removing subarrays
-   const allFlatPasswords = combinedInsecurePasswords.flat();
+   const allFlatPasswords = mostAndSecondInsecurePasswords.flat();
 
    // removing dupe
    const allUniqPasswords = [...new Set(allFlatPasswords)];
 
-   // removing pw skywalker
+   // removing pw skywalker & obama2016
    const firstSlicePasswords = allUniqPasswords.slice(
       0,
       allUniqPasswords.indexOf("skywalker")
@@ -208,9 +208,24 @@ $("#lets-go").click(function () {
    );
    console.log(`here are the third set of passwords: \n`, thirdSlicePasswords);
 
-   const unacceptablePasswords = firstSlicePasswords.concat(
+   // combined all 3 list
+   const combinedUnacceptablePasswords = firstSlicePasswords.concat(
       secondSlicePasswords,
       thirdSlicePasswords
    );
-   console.log(`Final list of unacceptable passwords:`, unacceptablePasswords);
+   console.log(
+      `Final list of unacceptable passwords:`,
+      combinedUnacceptablePasswords
+   );
+   //for loop
+   let unacceptablePassword = [];
+   for (let i = 0; i < combinedUnacceptablePasswords.length; i++) {
+      const value = combinedUnacceptablePasswords[i];
+      // keeping numbers and string and leave boolean out
+      if (typeof value === "number" || typeof value === "string") {
+         // convert all numbers to strings:
+         unacceptablePassword = unacceptablePassword.concat(String(value));
+         console.log(unacceptablePassword);
+      }
+   }
 });
