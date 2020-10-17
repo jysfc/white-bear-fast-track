@@ -221,11 +221,12 @@ $("#lets-go").click(function () {
    let unacceptablePassword = [];
    for (let i = 0; i < hasBooleansUnacceptablePasswords.length; i++) {
       const value = hasBooleansUnacceptablePasswords[i];
-      // keeping numbers or string and leave boolean out
+      // keeping numbers or string and leave boolean out https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
       // ||= or , &&= and, de morgans law
-      if (typeof value === "number" || typeof value === "string") {
-         // convert everything (numbers) to strings()
-         unacceptablePassword = unacceptablePassword.concat(String(value));
+      if (typeof value === `number` || typeof value === `string`) {
+         // convert (numbers) to strings()
+         const numAsString = String(value);
+         unacceptablePassword = unacceptablePassword.concat(numAsString);
          console.log(unacceptablePassword);
       }
    }
