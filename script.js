@@ -178,11 +178,11 @@ $("#lets-go").click(function () {
       );
    }
    // combining two array
-   const mostAndSecondInsecurePasswords = mostInsecurePasswords.concat(
+   const combinedInsecurePasswords = mostInsecurePasswords.concat(
       secondMostInsecurePasswords
    );
    // removing subarrays
-   const allFlatPasswords = mostAndSecondInsecurePasswords.flat();
+   const allFlatPasswords = combinedInsecurePasswords.flat();
 
    // removing dupe
    const allUniqPasswords = [...new Set(allFlatPasswords)];
@@ -209,21 +209,22 @@ $("#lets-go").click(function () {
    console.log(`here are the third set of passwords: \n`, thirdSlicePasswords);
 
    // combined all 3 list
-   const combinedUnacceptablePasswords = firstSlicePasswords.concat(
+   const hasBooleansUnacceptablePasswords = firstSlicePasswords.concat(
       secondSlicePasswords,
       thirdSlicePasswords
    );
    console.log(
       `Final list of unacceptable passwords:`,
-      combinedUnacceptablePasswords
+      hasBooleansUnacceptablePasswords
    );
    //for loop
    let unacceptablePassword = [];
-   for (let i = 0; i < combinedUnacceptablePasswords.length; i++) {
-      const value = combinedUnacceptablePasswords[i];
-      // keeping numbers and string and leave boolean out
+   for (let i = 0; i < hasBooleansUnacceptablePasswords.length; i++) {
+      const value = hasBooleansUnacceptablePasswords[i];
+      // keeping numbers or string and leave boolean out
+      // ||= or , &&= and, de morgans law
       if (typeof value === "number" || typeof value === "string") {
-         // convert all numbers to strings:
+         // convert everything (numbers) to strings()
          unacceptablePassword = unacceptablePassword.concat(String(value));
          console.log(unacceptablePassword);
       }
