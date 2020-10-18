@@ -129,7 +129,7 @@ $("#lets-go").click(function () {
    const passwordInput = $("#sign-up-password-input").val();
    const delimiter = `@`;
    const indexOfEmail = lowerCaseEmail.indexOf(delimiter); //numbers
-   console.log(`index of ${indexOfEmail}.`);
+   // console.log(`index of ${indexOfEmail}.`);
    const localEmail = emailInput.slice(0, indexOfEmail);
 
    if (lowerCaseEmail.length === 0) {
@@ -192,33 +192,26 @@ $("#lets-go").click(function () {
       0,
       allUniqPasswords.indexOf("skywalker")
    );
-   console.log(`here are the first set of passwords: \n`, firstSlicePasswords);
-
+   // console.log(`here are the first set of passwords: \n`, firstSlicePasswords);
    const secondSlicePasswords = allUniqPasswords.slice(
       allUniqPasswords.indexOf("1010101010"),
       allUniqPasswords.indexOf("obama2016")
    );
-   console.log(
-      `here are the second set of passwords: \n`,
-      secondSlicePasswords
-   );
-
+   // console.log(`here are the second set of passwords: \n`,secondSlicePasswords);
    const thirdSlicePasswords = allUniqPasswords.slice(
       allUniqPasswords.indexOf("mypassword")
    );
-   console.log(`here are the third set of passwords: \n`, thirdSlicePasswords);
+   // console.log(`here are the third set of passwords: \n`, thirdSlicePasswords);
 
    // combined all 3 list
    const hasBooleansUnacceptablePasswords = firstSlicePasswords.concat(
       secondSlicePasswords,
       thirdSlicePasswords
    );
-   console.log(
-      `Final list of unacceptable passwords:`,
-      hasBooleansUnacceptablePasswords
-   );
+   // console.log(`Final list of unacceptable passwords:`,hasBooleansUnacceptablePasswords);
+
    //for loop
-   let unacceptablePassword = [];
+   let unacceptableStringPasswords = [];
    for (let i = 0; i < hasBooleansUnacceptablePasswords.length; i++) {
       const value = hasBooleansUnacceptablePasswords[i];
       // keeping numbers or string and leave boolean out https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
@@ -226,8 +219,44 @@ $("#lets-go").click(function () {
       if (typeof value === `number` || typeof value === `string`) {
          // convert (numbers) to strings()
          const numAsString = String(value);
-         unacceptablePassword = unacceptablePassword.concat(numAsString);
-         console.log(unacceptablePassword);
+         unacceptableStringPasswords = unacceptableStringPasswords.concat(
+            numAsString
+         );
+         // console.log(unacceptableStringPasswords);
       }
    }
+   // reverse string
+   let reversedUnacceptablePasswords = [];
+   for (let i = 0; i < unacceptableStringPasswords.length; i++) {
+      const unacceptablePasswordsStr = unacceptableStringPasswords[i];
+      const unacceptablePasswordArrays = unacceptablePasswordsStr.split(``); // string to array
+      // console.log(unacceptablePasswordArrays);
+      const copyOfUnacceptablePasswordArrays = [...unacceptablePasswordArrays];
+      const reverseUnacceptablePasswordArrays = copyOfUnacceptablePasswordArrays.reverse(); // reversing to original
+      const newUnacceptablePasswords = reverseUnacceptablePasswordArrays.join(
+         ``
+      ); // array to string
+      reversedUnacceptablePasswords = reversedUnacceptablePasswords.concat(
+         newUnacceptablePasswords
+      );
+      // console.log(reversedUnacceptablePasswords);
+   }
+   // combine both original & reversed
+   const strAndRevUnacceptablePasswords = [
+      ...unacceptableStringPasswords,
+      ...reversedUnacceptablePasswords,
+   ];
+   // normalizing
+   let lowerCaseUnacceptablePasswords = [];
+   for (let i = 0; i < strAndRevUnacceptablePasswords.length; i++) {
+      const revisedUnacceptablePasswords = strAndRevUnacceptablePasswords[i];
+      const lowerCasePasswords = revisedUnacceptablePasswords.toLowerCase();
+      lowerCaseUnacceptablePasswords = lowerCaseUnacceptablePasswords.concat(
+         lowerCasePasswords
+      );
+      console.log(lowerCaseUnacceptablePasswords);
+   }
+   // removing dupe
+   const unacceptablePasswords = [...new Set(lowerCaseUnacceptablePasswords)];
+   console.log(unacceptablePasswords);
 });
