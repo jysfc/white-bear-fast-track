@@ -131,6 +131,22 @@ $("#lets-go").click(function () {
    const localEmail = emailNoDomain[0]; // showing only local email
    console.log(localEmail);
 
+   // Date user signed up
+   const signedUpDate = new Date(Date.now()); // pulling current day as object
+   // test = new Date(2020, 4, 7, 13, 15, 0, 000); // [april 7 2020] testing pad // ASK MIKE ABOUT MONTH
+   const year = signedUpDate.getFullYear();
+   const month = signedUpDate.getMonth();
+   const date = signedUpDate.getDate();
+
+   const yearString = String(year); //converting back to string to combine
+   const monthString = String(month + 1); //+1 since month is 0-11
+   const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+   const dayString = String(date);
+   const paddedDate = dayString.padStart(2, `0`);
+
+   const createdAt = yearString + paddedMonth + paddedDate;
+   console.log(createdAt);
+
    if (lowerCaseEmail.length === 0) {
       // email error msg
       $("#sign-up-email-input").addClass("is-invalid");
