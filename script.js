@@ -127,23 +127,31 @@ $("#lets-go").click(function () {
    const emailInput = $("#sign-up-email-input").val();
    const lowerCaseEmail = emailInput.trim().toLowerCase();
    const passwordInput = $("#sign-up-password-input").val();
-   const emailNoDomain = lowerCaseEmail.split(`@`); // remove local part from domain, [`local email`, `gmail.com`]
-   const localEmail = emailNoDomain[0]; // showing only local email
+   const emailNoDomain = lowerCaseEmail.split(`@`); // remove local part from domain, [`local part`, `gmail.com`]
+   const localEmail = emailNoDomain[0]; // showing only local part
    console.log(localEmail);
 
    // Date user signed up
    const signedUpDate = new Date(Date.now()); // pulling current day as object
-   // test = new Date(2020, 4, 7, 13, 15, 0, 000); // [april 7 2020] testing pad // ASK MIKE ABOUT MONTH
-   const year = signedUpDate.getFullYear();
-   const month = signedUpDate.getMonth();
-   const date = signedUpDate.getDate();
-
+   test = new Date(2020, 4, 7, 13, 15, 0, 000); // [april 7 2020] testing pad // ASK MIKE ABOUT MONTH
+   const year = test.getFullYear();
+   const month = test.getMonth();
+   const date = test.getDate();
    const yearString = String(year); //converting back to string to combine
    const monthString = String(month + 1); //+1 since month is 0-11
-   const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
-   const dayString = String(date);
-   const paddedDate = dayString.padStart(2, `0`);
+   // const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+   let paddedMonth = monthString;
+   // if month length is single digit
+   if (monthString.length < 2) {
+      // add a 0 in front
+      paddedMonth = `0` + monthString;
+   }
 
+   const dateString = String(date);
+   // const paddedDate = dateString.padStart(2, `0`);
+   if (dateString.length < 2) {
+      paddedDate = `0` + dateString;
+   }
    const createdAt = yearString + paddedMonth + paddedDate;
    console.log(createdAt);
 
