@@ -132,13 +132,14 @@ $("#lets-go").click(function () {
    console.log(localEmail);
 
    // Date user signed up
-   const signedUpDate = new Date(Date.now()); // pulling current day as object
-   test = new Date(2020, 4, 7, 13, 15, 0, 000); // [april 7 2020] testing pad // ASK MIKE ABOUT MONTH
-   const year = test.getFullYear();
-   const month = test.getMonth();
-   const date = test.getDate();
-   const yearString = String(year); //converting back to string to combine
+   let signedUpDate = new Date(Date.now()); // pulling current day as object
+   // signedUpDate = new Date(2020, 3, 7, 13, 15, 0, 000); // [april 7 2020] testing pad
+   const year = signedUpDate.getFullYear(); // pulling prop as number
+   const month = signedUpDate.getMonth();
+   const date = signedUpDate.getDate();
+   const yearString = String(year); //converting to string to combine
    const monthString = String(month + 1); //+1 since month is 0-11
+   const dateString = String(date);
    // const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
    let paddedMonth = monthString;
    // if month length is single digit
@@ -147,8 +148,8 @@ $("#lets-go").click(function () {
       paddedMonth = `0` + monthString;
    }
 
-   const dateString = String(date);
    // const paddedDate = dateString.padStart(2, `0`);
+   let paddedDate = dateString;
    if (dateString.length < 2) {
       paddedDate = `0` + dateString;
    }
@@ -239,7 +240,7 @@ $("#lets-go").click(function () {
       const value = hasBooleansUnacceptablePasswords[i];
       // keeping numbers or string and leave boolean out https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
       // ||= or , &&= and, de morgans law
-      if (typeof value === `number` || typeof value === `string`) {
+      if (typeof value !== `boolean`) {
          // convert (numbers) to strings()
          const numAsString = String(value);
          unacceptableStringPasswords = unacceptableStringPasswords.concat(
@@ -249,33 +250,31 @@ $("#lets-go").click(function () {
       }
    }
    // reverse string
-   let reversedUnacceptablePasswords = [];
+   let unacceptableReversedPasswords = [];
    for (let i = 0; i < unacceptableStringPasswords.length; i++) {
-      const unacceptablePasswordsStr = unacceptableStringPasswords[i];
-      const unacceptablePasswordArrays = unacceptablePasswordsStr.split(``); // string to array
+      const password = unacceptableStringPasswords[i];
+      const chars = password.split(``); // string to array of char
       // console.log(unacceptablePasswordArrays);
-      const copyOfUnacceptablePasswordArrays = [...unacceptablePasswordArrays];
-      const reverseUnacceptablePasswordArrays = copyOfUnacceptablePasswordArrays.reverse(); // reversing to original
-      const newUnacceptablePasswords = reverseUnacceptablePasswordArrays.join(
-         ``
-      ); // array to string
-      reversedUnacceptablePasswords = reversedUnacceptablePasswords.concat(
-         newUnacceptablePasswords
+      const copyOfChars = [...chars];
+      const reversedChars = copyOfChars.reverse(); // reversing to original
+      const reversedPassword = reversedChars.join(``); // array to string
+      unacceptableReversedPasswords = unacceptableReversedPasswords.concat(
+         reversedPassword
       );
-      // console.log(reversedUnacceptablePasswords);
+      // console.log(unacceptableReversedPasswords);
    }
    // combine both original & reversed
    const strAndRevUnacceptablePasswords = [
       ...unacceptableStringPasswords,
-      ...reversedUnacceptablePasswords,
+      ...unacceptableReversedPasswords,
    ];
    // normalizing
    let lowerCaseUnacceptablePasswords = [];
    for (let i = 0; i < strAndRevUnacceptablePasswords.length; i++) {
-      const revisedUnacceptablePasswords = strAndRevUnacceptablePasswords[i];
-      const lowerCasePasswords = revisedUnacceptablePasswords.toLowerCase();
+      const password = strAndRevUnacceptablePasswords[i];
+      const lowerCasePassword = password.toLowerCase().trim();
       lowerCaseUnacceptablePasswords = lowerCaseUnacceptablePasswords.concat(
-         lowerCasePasswords
+         lowerCasePassword
       );
       console.log(lowerCaseUnacceptablePasswords);
    }
