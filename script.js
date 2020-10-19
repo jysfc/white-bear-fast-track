@@ -127,10 +127,9 @@ $("#lets-go").click(function () {
    const emailInput = $("#sign-up-email-input").val();
    const lowerCaseEmail = emailInput.trim().toLowerCase();
    const passwordInput = $("#sign-up-password-input").val();
-   const delimiter = `@`;
-   const indexOfEmail = lowerCaseEmail.indexOf(delimiter); //numbers
-   // console.log(`index of ${indexOfEmail}.`);
-   const localEmail = emailInput.slice(0, indexOfEmail);
+   const emailNoDomain = lowerCaseEmail.split(`@`); // remove local part from domain, [`local email`, `gmail.com`]
+   const localEmail = emailNoDomain[0]; // showing only local email
+   console.log(localEmail);
 
    if (lowerCaseEmail.length === 0) {
       // email error msg
