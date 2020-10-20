@@ -27,4 +27,42 @@ function toReverse(str) {
    }
 }
 const reversedString = toReverse(`cat`);
-console.log(reversedString);
+// console.log(reversedString);
+
+//function that return a boolean
+
+// given a string and a number
+// check the length of the string
+// if the length is over the number, return true
+// else return false
+
+//hasError
+
+function checkIsOver(str, num) {
+   console.log(`String: ${str}\nNumber: ${num}`); // side effect
+   return str.length > num; // if str length is greater than number return true
+}
+const userInput = `Hello world`;
+const maxChars = 240;
+const hasError = checkIsOver(userInput, maxChars);
+console.log(hasError);
+
+// if (hasError) {// display error message to user} else {// submit the input}
+
+const id = `char-counter`;
+const message = `You have exceeded the character limit.`;
+showError(hasError, id, message); // calling showError
+
+function showError(hasError, id, message) {
+   // id = `#char-counter`, You have exceeded the character limit.
+   // id=`char-counter`
+   // id=`char-counter-error`
+   const errorId = `${id}-error`;
+   if (hasError) {
+      // boolean
+      $(id).show(errorId); // string
+      $(errorId).html(message); // msg to display
+   } else {
+      $(id).hide(errorId);
+   }
+}
