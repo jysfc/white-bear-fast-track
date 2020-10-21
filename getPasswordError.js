@@ -6,15 +6,15 @@ function getPasswordError(password, email) {
 
    if (password.length === 0) {
       // password input. field blank
-      return "Please enter your password.";
+      return `Please enter your password.`;
    } else if (password.length < 9) {
       // password error msg. less than 9
-      return "Your password must be at least 9 characters.";
+      return `Your password must be at least 9 characters.`;
    }
    if (password.includes(localEmail) && localEmail.length >= 4) {
       // pw match email error. contain local part
 
-      return "All or part of your email address cannot be used in your password.";
+      return `All or part of your email address cannot be used in your password.`;
    }
    if (unacceptablePasswords.includes(password.toLowerCase())) {
       // password contain insecure password
@@ -38,16 +38,16 @@ function getPasswordError(password, email) {
       // removing pw skywalker & obama2016
       const firstSlicePasswords = allUniqPasswords.slice(
          0,
-         allUniqPasswords.indexOf("skywalker")
+         allUniqPasswords.indexOf(`skywalker`)
       );
       // console.log(`here are the first set of passwords: \n`, firstSlicePasswords);
       const secondSlicePasswords = allUniqPasswords.slice(
-         allUniqPasswords.indexOf("1010101010"),
-         allUniqPasswords.indexOf("obama2016")
+         allUniqPasswords.indexOf(`1010101010`),
+         allUniqPasswords.indexOf(`obama2016`)
       );
       // console.log(`here are the second set of passwords: \n`,secondSlicePasswords);
       const thirdSlicePasswords = allUniqPasswords.slice(
-         allUniqPasswords.indexOf("mypassword")
+         allUniqPasswords.indexOf(`mypassword`)
       );
       // console.log(`here are the third set of passwords: \n`, thirdSlicePasswords);
 
