@@ -51,16 +51,19 @@ $(`#lets-go`).click(function () {
    const date = signedUpDate.getDate();
    const yearString = String(year); //converting to string to combine
    const monthString = String(month + 1); //+1 since month is 0-11
+   const dateString = String(date);
+
    let paddedMonth = monthString;
    if (monthString.length < 2) {
-      paddedDate = `0` + monthString;
+      padleft(monthString);
    }
-   const dateString = String(date);
+
    // const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
    // const paddedDate = dateString.padStart(2, `0`);
+
    let paddedDate = dateString;
    if (dateString.length < 2) {
-      paddedDate = `0` + dateString;
+      padleft(dateString);
    }
    const createdAt = yearString + paddedMonth + paddedDate;
    console.log(createdAt);
@@ -77,5 +80,8 @@ function hideError(element, message) {
    $(`${element}-input`).removeClass(`is-invalid`);
    $(`${element}-error`).html(message);
 }
-
-// char counter
+function padLeft(str) {
+   if (str.length < 2) {
+   }
+   return (padLeft = `0` + str);
+}
