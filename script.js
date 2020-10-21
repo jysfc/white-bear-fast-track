@@ -123,13 +123,28 @@ $("#top-edit-input, #bottom-edit-input").keyup(function () {
 
 // lets go button
 $("#lets-go").click(function () {
-   //email input
+   // when let go's clicked, we are getting email and pw input
    const emailInput = $("#sign-up-email-input").val();
-   const lowerCaseEmail = emailInput.trim().toLowerCase();
-   const passwordInput = $("#sign-up-password-input").val();
-   const emailNoDomain = lowerCaseEmail.split(`@`); // remove local part from domain, [`local part`, `gmail.com`]
-   const localEmail = emailNoDomain[0]; // showing only local part
-   console.log(localEmail);
+   const email = emailInput.trim().toLowerCase();
+   const password = $("#sign-up-password-input").val();
+   console.log(email);
+
+   //passing values into functions
+   getPasswordError(password, email); // accepts two strings
+   const passwordError = getPasswordError(password, email); // getPasswordError should return a string
+   if (passwordError !== "") {
+      showError("#sign-up-password-input", passwordError);
+   } else {
+      hideError("#sign-up-password-input", passwordError);
+   }
+
+   getEmailError(email);
+   const emailError = getEmailError(); // getEmailError should return a string
+   if (emailError !== "") {
+      showError("#sign-up-email-input", emailError);
+   } else {
+      hideError("#sign-up-email-input", emailError);
+   }
 
    // Date user signed up
    let signedUpDate = new Date(Date.now()); // pulling current day as object
@@ -147,7 +162,6 @@ $("#lets-go").click(function () {
       // add a 0 in front
       paddedMonth = `0` + monthString;
    }
-
    // const paddedDate = dateString.padStart(2, `0`);
    let paddedDate = dateString;
    if (dateString.length < 2) {
@@ -155,130 +169,4 @@ $("#lets-go").click(function () {
    }
    const createdAt = yearString + paddedMonth + paddedDate;
    console.log(createdAt);
-
-   if (lowerCaseEmail.length === 0) {
-      // email error msg
-      $("#sign-up-email-input").addClass("is-invalid");
-      $("#sign-up-email-error").removeClass("d-none");
-      $("#sign-up-email-error").html("Please enter your email address.");
-   } else {
-      // email success msg
-      $("#sign-up-email-input").removeClass("is-invalid");
-      $("#sign-up-email-input").addClass("is-valid");
-      $("#sign-up-email-error").addClass("d-none");
-   }
-   if (passwordInput.length === 0) {
-      // password input. field blank
-      $("#sign-up-password-input").addClass("is-invalid");
-      $("#sign-up-password-error").removeClass("d-none");
-      $("#sign-up-password-error").html("Please enter your password.");
-   } else if (passwordInput.length < 9) {
-      // password error msg. less than 9
-      $("#sign-up-password-input").addClass("is-invalid");
-      $("#sign-up-password-error").removeClass("d-none");
-      $("#sign-up-password-error").html(
-         "Your password must be at least 9 characters."
-      );
-   } else {
-      // password success msg
-      $("#sign-up-password-input").removeClass("is-invalid");
-      $("#sign-up-password-input").addClass("is-valid");
-      $("#sign-up-password-error").addClass("d-none");
-   }
-   if (passwordInput.includes(localEmail) && localEmail.length >= 4) {
-      // pw match email error. contain local part
-      $("#sign-up-password-input").addClass("is-invalid");
-      $("#sign-up-password-error").removeClass("d-none");
-      $("#sign-up-password-error").html(
-         "All or part of your email address cannot be used in your password."
-      );
-   }
-   if (mostInsecurePasswords.includes(passwordInput.toLowerCase())) {
-      // password contain insecure password
-      $("#sign-up-password-input").addClass("is-invalid");
-      $("#sign-up-password-error").removeClass("d-none");
-      $("#sign-up-password-error").html(
-         `Your password contains a commonly used password, "${passwordInput.toLowerCase()}" and can be easily discovered by attackers. Please use something else.`
-      );
-   }
-   // combining two array
-   const combinedInsecurePasswords = mostInsecurePasswords.concat(
-      secondMostInsecurePasswords
-   );
-   // removing subarrays
-   const allFlatPasswords = combinedInsecurePasswords.flat();
-
-   // removing dupe
-   const allUniqPasswords = [...new Set(allFlatPasswords)];
-
-   // removing pw skywalker & obama2016
-   const firstSlicePasswords = allUniqPasswords.slice(
-      0,
-      allUniqPasswords.indexOf("skywalker")
-   );
-   // console.log(`here are the first set of passwords: \n`, firstSlicePasswords);
-   const secondSlicePasswords = allUniqPasswords.slice(
-      allUniqPasswords.indexOf("1010101010"),
-      allUniqPasswords.indexOf("obama2016")
-   );
-   // console.log(`here are the second set of passwords: \n`,secondSlicePasswords);
-   const thirdSlicePasswords = allUniqPasswords.slice(
-      allUniqPasswords.indexOf("mypassword")
-   );
-   // console.log(`here are the third set of passwords: \n`, thirdSlicePasswords);
-
-   // combined all 3 list
-   const hasBooleansUnacceptablePasswords = firstSlicePasswords.concat(
-      secondSlicePasswords,
-      thirdSlicePasswords
-   );
-   // console.log(`Final list of unacceptable passwords:`,hasBooleansUnacceptablePasswords);
-
-   //for loop
-   let unacceptableStringPasswords = [];
-   for (let i = 0; i < hasBooleansUnacceptablePasswords.length; i++) {
-      const value = hasBooleansUnacceptablePasswords[i];
-      // keeping numbers or string and leave boolean out https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
-      // ||= or , &&= and, de morgans law
-      if (typeof value !== `boolean`) {
-         // convert (numbers) to strings()
-         const numAsString = String(value);
-         unacceptableStringPasswords = unacceptableStringPasswords.concat(
-            numAsString
-         );
-         // console.log(unacceptableStringPasswords);
-      }
-   }
-   // reverse string
-   let unacceptableReversedPasswords = [];
-   for (let i = 0; i < unacceptableStringPasswords.length; i++) {
-      const password = unacceptableStringPasswords[i];
-      const chars = password.split(``); // string to array of char
-      // console.log(unacceptablePasswordArrays);
-      const copyOfChars = [...chars];
-      const reversedChars = copyOfChars.reverse(); // reversing to original
-      const reversedPassword = reversedChars.join(``); // array to string
-      unacceptableReversedPasswords = unacceptableReversedPasswords.concat(
-         reversedPassword
-      );
-      // console.log(unacceptableReversedPasswords);
-   }
-   // combine both original & reversed
-   const strAndRevUnacceptablePasswords = [
-      ...unacceptableStringPasswords,
-      ...unacceptableReversedPasswords,
-   ];
-   // normalizing
-   let lowerCaseUnacceptablePasswords = [];
-   for (let i = 0; i < strAndRevUnacceptablePasswords.length; i++) {
-      const password = strAndRevUnacceptablePasswords[i];
-      const lowerCasePassword = password.toLowerCase().trim();
-      lowerCaseUnacceptablePasswords = lowerCaseUnacceptablePasswords.concat(
-         lowerCasePassword
-      );
-      console.log(lowerCaseUnacceptablePasswords);
-   }
-   // removing dupe
-   const unacceptablePasswords = [...new Set(lowerCaseUnacceptablePasswords)];
-   console.log(unacceptablePasswords);
 });
