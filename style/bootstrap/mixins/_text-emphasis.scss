@@ -17,9 +17,9 @@
       }
    }
    @include deprecate(
-      ``text-emphasis-variant() ``,
-      `v4.4.0`,
-      `v5`,
+      "" text-emphasis-variant() "",
+      "v4.4.0",
+      "v5",
       $ignore-warning
    );
 }

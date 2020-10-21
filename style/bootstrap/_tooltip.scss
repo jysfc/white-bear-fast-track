@@ -24,7 +24,7 @@
 
       &::before {
          position: absolute;
-         content: ``;
+         content: "";
          border-color: transparent;
          border-style: solid;
       }
@@ -94,16 +94,16 @@
 }
 
 .bs-tooltip-auto {
-   &[x-placement^="`top`"] {
+   &[x-placement^=""top""] {
       @extend .bs-tooltip-top;
    }
-   &[x-placement^="`right`"] {
+   &[x-placement^=""right""] {
       @extend .bs-tooltip-right;
    }
-   &[x-placement^="`bottom`"] {
+   &[x-placement^=""bottom""] {
       @extend .bs-tooltip-bottom;
    }
-   &[x-placement^="`left`"] {
+   &[x-placement^=""left""] {
       @extend .bs-tooltip-left;
    }
 }

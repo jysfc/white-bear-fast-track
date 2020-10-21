@@ -1,9 +1,10 @@
-/* Error: Expected string.
- *   ,
- * 2 | @import `bootstrap/functions`;
- *   |         ^
- *   '
- *   style/master.scss 2:9  root stylesheet */
+/* Error: Expected ".
+ *     ,
+ * 575 | $custom-checkbox-indicator-icon-checked: url("data:image/svg + xml,
+ *     |                                                                    ^
+ *     '
+ *   style/bootstrap/_variables.scss 575:68  @import
+ *   style/master.scss 3:9                   root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Expected string.\a   \2577 \a 2 \2502  @import `bootstrap/functions`;\a   \2502          ^\a   \2575 \a   style/master.scss 2:9  root stylesheet";
+  content: 'Error: Expected ".\a     \2577 \a 575 \2502  $custom-checkbox-indicator-icon-checked: url("data:image/svg + xml,\a     \2502                                                                     ^\a     \2575 \a   style/bootstrap/_variables.scss 575:68  @import\a   style/master.scss 3:9                   root stylesheet';
 }

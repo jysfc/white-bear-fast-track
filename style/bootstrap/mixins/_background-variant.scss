@@ -13,9 +13,9 @@
       }
    }
    @include deprecate(
-      `The `bg-variant` mixin`,
-      `v4.4.0`,
-      `v5`,
+      "The " bg-variant " mixin",
+      "v4.4.0",
+      "v5",
       $ignore-warning
    );
 }
@@ -26,9 +26,9 @@
          linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x !important;
    }
    @include deprecate(
-      `The `bg-gradient-variant` mixin`,
-      `v4.5.0`,
-      `v5`,
+      "The " bg-gradient-variant " mixin",
+      "v4.5.0",
+      "v5",
       $ignore-warning
    );
 }

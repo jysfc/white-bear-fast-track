@@ -126,7 +126,7 @@ mark,
 // Misc
 //
 
-// Builds on `abbr`
+// Builds on "abbr"
 .initialism {
    @include font-size(90%);
    text-transform: uppercase;
@@ -144,6 +144,6 @@ mark,
    color: $blockquote-small-color;
 
    &::before {
-      content: `\2014\00a0`; // em dash, nbsp
+      content: "\2014\00a0"; // em dash, nbsp
    }
 }

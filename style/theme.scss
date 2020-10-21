@@ -39,15 +39,15 @@ $red-900: #290505;
 $grays: ();
 $grays: map-merge(
    (
-      `100`: $gray-100,
-      `200`: $gray-200,
-      `300`: $gray-300,
-      `400`: $gray-400,
-      `500`: $gray-500,
-      `600`: $gray-600,
-      `700`: $gray-700,
-      `800`: $gray-800,
-      `900`: $gray-900,
+      "100": $gray-100,
+      "200": $gray-200,
+      "300": $gray-300,
+      "400": $gray-400,
+      "500": $gray-500,
+      "600": $gray-600,
+      "700": $gray-700,
+      "800": $gray-800,
+      "900": $gray-900,
    ),
    $grays
 );
@@ -59,11 +59,11 @@ $gray: $gray-600;
 $colors: ();
 $colors: map-merge(
    (
-      `blue`: $blue,
-      `red`: $red,
-      `white`: $white,
-      `gray`: $gray,
-      `gray-dark`: $gray-800,
+      "blue": $blue,
+      "red": $red,
+      "white": $white,
+      "gray": $gray,
+      "gray-dark": $gray-800,
    ),
    $colors
 );
@@ -78,12 +78,12 @@ $dark: $gray-800;
 $theme-colors: ();
 $theme-colors: map-merge(
    (
-      `primary`: $primary,
-      `secondary`: $secondary,
-      `success`: $success,
-      `danger`: $danger,
-      `light`: $light,
-      `dark`: $dark,
+      "primary": $primary,
+      "secondary": $secondary,
+      "success": $success,
+      "danger": $danger,
+      "light": $light,
+      "dark": $dark,
    ),
    $theme-colors
 );
@@ -115,12 +115,12 @@ $paragraph-margin-bottom: 0;
 
 // FONTS
 
-@import url(`https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Noto+Sans:wght@400;700&family=Noto+Serif&display=swap`);
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Noto+Sans:wght@400;700&family=Noto+Serif&display=swap");
 
-$font-family-sans-serif: `Noto Sans`, sans-serif, `Apple Color Emoji`,
-   `Segoe UI Emoji`, `Segoe UI Symbol`, `Noto Color Emoji`;
-$font-family-serif: `Noto Serif`, serif;
-$font-family-brand: `Fira Sans`;
+$font-family-sans-serif: "Noto Sans", sans-serif, "Apple Color Emoji",
+   "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-serif: "Noto Serif", serif;
+$font-family-brand: "Fira Sans";
 
 $font-family-base: $font-family-sans-serif;
 
@@ -129,7 +129,7 @@ $font-weight-bold: 700;
 
 $line-height-base: 1.5;
 
-$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-base: 1rem; // Assumes the browser default, typically "16px"
 $font-size-lg: $font-size-base * 1.25;
 $font-size-sm: $font-size-base * 0.875;
 
@@ -145,11 +145,11 @@ $lead-font-weight: $font-weight-normal;
 
 // LINKS
 
-$link-color: theme-color(`primary`);
+$link-color: theme-color("primary");
 $link-decoration: none;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: underline;
-// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+// Darken percentage for links with ".text-*" class (e.g. ".text-success")
 $emphasized-link-hover-darken-percentage: 15%;
 
 // CARD
@@ -240,5 +240,5 @@ $input-height-lg: add(
    add($input-padding-y-lg * 2, $border-width * 2, false)
 );
 
-$component-active-bg: theme-color(`primary`);
+$component-active-bg: theme-color("primary");
 $custom-control-indicator-checked-bg: $component-active-bg;

@@ -1,6 +1,6 @@
 // Variables
 //
-// Variables should follow the `$component-state-property-size` formula for
+// Variables should follow the "$component-state-property-size" formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
 // Color system
@@ -20,15 +20,15 @@ $black: #000 !default;
 $grays: () !default;
 $grays: map-merge(
    (
-      `100`: $gray-100,
-      `200`: $gray-200,
-      `300`: $gray-300,
-      `400`: $gray-400,
-      `500`: $gray-500,
-      `600`: $gray-600,
-      `700`: $gray-700,
-      `800`: $gray-800,
-      `900`: $gray-900,
+      "100": $gray-100,
+      "200": $gray-200,
+      "300": $gray-300,
+      "400": $gray-400,
+      "500": $gray-500,
+      "600": $gray-600,
+      "700": $gray-700,
+      "800": $gray-800,
+      "900": $gray-900,
    ),
    $grays
 );
@@ -47,19 +47,19 @@ $cyan: #17a2b8 !default;
 $colors: () !default;
 $colors: map-merge(
    (
-      `blue`: $blue,
-      `indigo`: $indigo,
-      `purple`: $purple,
-      `pink`: $pink,
-      `red`: $red,
-      `orange`: $orange,
-      `yellow`: $yellow,
-      `green`: $green,
-      `teal`: $teal,
-      `cyan`: $cyan,
-      `white`: $white,
-      `gray`: $gray-600,
-      `gray-dark`: $gray-800,
+      "blue": $blue,
+      "indigo": $indigo,
+      "purple": $purple,
+      "pink": $pink,
+      "red": $red,
+      "orange": $orange,
+      "yellow": $yellow,
+      "green": $green,
+      "teal": $teal,
+      "cyan": $cyan,
+      "white": $white,
+      "gray": $gray-600,
+      "gray-dark": $gray-800,
    ),
    $colors
 );
@@ -76,14 +76,14 @@ $dark: $gray-800 !default;
 $theme-colors: () !default;
 $theme-colors: map-merge(
    (
-      `primary`: $primary,
-      `secondary`: $secondary,
-      `success`: $success,
-      `info`: $info,
-      `warning`: $warning,
-      `danger`: $danger,
-      `light`: $light,
-      `dark`: $dark,
+      "primary": $primary,
+      "secondary": $secondary,
+      "success": $success,
+      "info": $info,
+      "warning": $warning,
+      "danger": $danger,
+      "light": $light,
+      "dark": $dark,
    ),
    $theme-colors
 );
@@ -91,7 +91,7 @@ $theme-colors: map-merge(
 // Set a specific jump point for requesting color jumps
 $theme-color-interval: 8% !default;
 
-// The yiq lightness value that determines when the lightness of color changes from `dark` to `light`. Acceptable values are between 0 and 255.
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
 $yiq-contrasted-threshold: 150 !default;
 
 // Customize the light and dark text colors for use in our YIQ color contrast function.
@@ -100,10 +100,11 @@ $yiq-text-light: $white !default;
 
 // Characters which are escaped by the escape-svg function
 $escaped-characters: (
-   (`<`, `%3c`),
-   (`>`, `%3e`),
-   (`#`, `%23`),
-   (`(`, `%28`), (`) `, `%29`)
+   ("<", "%3c"),
+   (">", "%3e"),
+   ("#", "%23"),
+   ("(", "%28"),
+   (") ", "%29")
 ) !default;
 
 // Options
@@ -152,7 +153,7 @@ $spacers: map-merge(
    $spacers
 );
 
-// This variable affects the `.h-*` and `.w-*` classes.
+// This variable affects the ".h-*" and ".w-*" classes.
 $sizes: () !default;
 $sizes: map-merge(
    (
@@ -167,7 +168,7 @@ $sizes: map-merge(
 
 // Body
 //
-// Settings for the `<body>` element.
+// Settings for the "<body>" element.
 
 $body-bg: $white !default;
 $body-color: $gray-900 !default;
@@ -176,11 +177,11 @@ $body-color: $gray-900 !default;
 //
 // Style anchor elements.
 
-$link-color: theme-color(`primary`) !default;
+$link-color: theme-color("primary") !default;
 $link-decoration: none !default;
 $link-hover-color: darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;
-// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+// Darken percentage for links with ".text-*" class (e.g. ".text-success")
 $emphasized-link-hover-darken-percentage: 15% !default;
 
 // Paragraphs
@@ -202,12 +203,12 @@ $grid-breakpoints: (
    xl: 1200px,
 ) !default;
 
-@include _assert-ascending($grid-breakpoints, `$grid-breakpoints`);
-@include _assert-starts-at-zero($grid-breakpoints, `$grid-breakpoints`);
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 // Grid containers
 //
-// Define the maximum width of `.container` for different screen sizes.
+// Define the maximum width of ".container" for different screen sizes.
 
 $container-max-widths: (
    sm: 540px,
@@ -216,7 +217,7 @@ $container-max-widths: (
    xl: 1140px,
 ) !default;
 
-@include _assert-ascending($container-max-widths, `$container-max-widths`);
+@include _assert-ascending($container-max-widths, "$container-max-widths");
 
 // Grid columns
 //
@@ -247,7 +248,7 @@ $box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
 
 $component-active-color: $white !default;
-$component-active-bg: theme-color(`primary`) !default;
+$component-active-bg: theme-color("primary") !default;
 
 $caret-width: 0.3em !default;
 $caret-vertical-align: $caret-width * 0.85 !default;
@@ -268,15 +269,15 @@ $embed-responsive-aspect-ratios: join(
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, `Segoe UI`, Roboto,
-   `Helvetica Neue`, Arial, `Noto Sans`, sans-serif, `Apple Color Emoji`,
-   `Segoe UI Emoji`, `Segoe UI Symbol`, `Noto Color Emoji` !default;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+   "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+   "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-   `Liberation Mono`, `Courier New`, monospace !default;
+   "Liberation Mono", "Courier New", monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
-$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-base: 1rem !default; // Assumes the browser default, typically "16px"
 $font-size-lg: $font-size-base * 1.25 !default;
 $font-size-sm: $font-size-base * 0.875 !default;
 
@@ -342,7 +343,7 @@ $hr-margin-y: $spacer !default;
 
 // Tables
 //
-// Customizes the `.table` component with basic values, each used across all table variations.
+// Customizes the ".table" component with basic values, each used across all table variations.
 
 $table-cell-padding: 0.75rem !default;
 $table-cell-padding-sm: 0.3rem !default;
@@ -376,7 +377,7 @@ $table-border-level: -6 !default;
 
 // Buttons + Forms
 //
-// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+// Shared variables that are reassigned to "$input-" and "$btn-" specific variables.
 
 $input-btn-padding-y: 0.375rem !default;
 $input-btn-padding-x: 0.75rem !default;
@@ -409,7 +410,7 @@ $btn-padding-x: $input-btn-padding-x !default;
 $btn-font-family: $input-btn-font-family !default;
 $btn-font-size: $input-btn-font-size !default;
 $btn-line-height: $input-btn-line-height !default;
-$btn-white-space: null !default; // Set to `nowrap` to prevent text wrapping
+$btn-white-space: null !default; // Set to "nowrap" to prevent text wrapping
 
 $btn-padding-y-sm: $input-btn-padding-y-sm !default;
 $btn-padding-x-sm: $input-btn-padding-x-sm !default;
@@ -553,7 +554,7 @@ $custom-control-label-disabled-color: $gray-600 !default;
 $custom-control-indicator-checked-color: $component-active-color !default;
 $custom-control-indicator-checked-bg: $component-active-bg !default;
 $custom-control-indicator-checked-disabled-bg: rgba(
-   theme-color(`primary`),
+   theme-color("primary"),
    0.5
 ) !default;
 $custom-control-indicator-checked-box-shadow: null !default;
@@ -571,25 +572,19 @@ $custom-control-indicator-active-box-shadow: null !default;
 $custom-control-indicator-active-border-color: $custom-control-indicator-active-bg !default;
 
 $custom-checkbox-indicator-border-radius: $border-radius !default;
-$custom-checkbox-indicator-icon-checked: url(
-   `data:image/svg + xml,
-   <svgxmlns="http://www.w3.org/2000/svg"width="8"height="8"viewBox="0 0 8 8"><pathfill="#{$custom-control-indicator-checked-color}"d="M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z"/></svg>`,
-) !default;
+$custom-checkbox-indicator-icon-checked: url("data:image/svg + xml,
+   <svgxmlns="http://www.w3.org/2000/svg"width="8"height="8"viewBox="0 0 8 8"><pathfill="#{$custom-control-indicator-checked-color}"d="M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z"/></svg>") !default;
 
 $custom-checkbox-indicator-indeterminate-bg: $component-active-bg !default;
 $custom-checkbox-indicator-indeterminate-color: $custom-control-indicator-checked-color !default;
-$custom-checkbox-indicator-icon-indeterminate: url(
-   `data:image/svg + xml,
-   <svgxmlns="http://www.w3.org/2000/svg"width="4"height="4"viewBox="0 0 4 4"><pathstroke="#{$custom-checkbox-indicator-indeterminate-color}"d="M0 2h4"/></svg>`,
-) !default;
+$custom-checkbox-indicator-icon-indeterminate: url("data:image/svg + xml,
+   <svgxmlns="http://www.w3.org/2000/svg"width="4"height="4"viewBox="0 0 4 4"><pathstroke="#{$custom-checkbox-indicator-indeterminate-color}"d="M0 2h4"/></svg>") !default;
 $custom-checkbox-indicator-indeterminate-box-shadow: null !default;
 $custom-checkbox-indicator-indeterminate-border-color: $custom-checkbox-indicator-indeterminate-bg !default;
 
 $custom-radio-indicator-border-radius: 50% !default;
-$custom-radio-indicator-icon-checked: url(
-   `data:image/svg + xml,
-   <svgxmlns="http://www.w3.org/2000/svg"width="12"height="12"viewBox="-4 -4 8 8"><circler="3"fill="#{$custom-control-indicator-checked-color}"/></svg>`,
-) !default;
+$custom-radio-indicator-icon-checked: url("data:image/svg + xml,
+   <svgxmlns="http://www.w3.org/2000/svg"width="12"height="12"viewBox="-4 -4 8 8"><circler="3"fill="#{$custom-control-indicator-checked-color}"/></svg>") !default;
 
 $custom-switch-width: $custom-control-indicator-size * 1.75 !default;
 $custom-switch-indicator-border-radius: $custom-control-indicator-size / 2 !default;
@@ -612,10 +607,8 @@ $custom-select-bg: $input-bg !default;
 $custom-select-disabled-bg: $gray-200 !default;
 $custom-select-bg-size: 8px 10px !default; // In pixels because image dimensions
 $custom-select-indicator-color: $gray-800 !default;
-$custom-select-indicator: url(
-   `data:image/svg + xml,
-   <svgxmlns="http://www.w3.org/2000/svg"width="4"height="5"viewBox="0 0 4 5"><pathfill="#{$custom-select-indicator-color}"d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>`,
-) !default;
+$custom-select-indicator: url("data:image/svg + xml,
+   <svgxmlns="http://www.w3.org/2000/svg"width="4"height="5"viewBox="0 0 4 5"><pathfill="#{$custom-select-indicator-color}"d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>") !default;
 $custom-select-background: escape-svg($custom-select-indicator) no-repeat right
    $custom-select-padding-x center / $custom-select-bg-size !default; // Used so we can have multiple background elements (e.g., arrow and feedback icon)
 
@@ -688,37 +681,33 @@ $custom-file-box-shadow: $input-box-shadow !default;
 $custom-file-button-color: $custom-file-color !default;
 $custom-file-button-bg: $input-group-addon-bg !default;
 $custom-file-text: (
-   en: `Browse`,
+   en: "Browse",
 ) !default;
 
 // Form validation
 
 $form-feedback-margin-top: $form-text-margin-top !default;
 $form-feedback-font-size: $small-font-size !default;
-$form-feedback-valid-color: theme-color(`success`) !default;
-$form-feedback-invalid-color: theme-color(`danger`) !default;
+$form-feedback-valid-color: theme-color("success") !default;
+$form-feedback-invalid-color: theme-color("danger") !default;
 
 $form-feedback-icon-valid-color: $form-feedback-valid-color !default;
-$form-feedback-icon-valid: url(
-   `data:image/svg + xml,
-   <svgxmlns="http://www.w3.org/2000/svg"width="8"height="8"viewBox="0 0 8 8"><pathfill="#{$form-feedback-icon-valid-color}"d="M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z"/></svg>`,
-) !default;
+$form-feedback-icon-valid: url("data:image/svg + xml,
+   <svgxmlns="http://www.w3.org/2000/svg"width="8"height="8"viewBox="0 0 8 8"><pathfill="#{$form-feedback-icon-valid-color}"d="M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z"/></svg>") !default;
 $form-feedback-icon-invalid-color: $form-feedback-invalid-color !default;
-$form-feedback-icon-invalid: url(
-   `data:image/svg + xml,
-   <svgxmlns="http://www.w3.org/2000/svg"width="12"height="12"fill="none"stroke="#{$form-feedback-icon-invalid-color}"viewBox="0 0 12 12"><circlecx="6"cy="6"r="4.5"/><pathstroke-linejoin="round"d="M5.8 3.6h.4L6 6.5z"/><circlecx="6"cy="8.2"r=".6"fill="#{$form-feedback-icon-invalid-color}"stroke="none"/></svg>`,
-) !default;
+$form-feedback-icon-invalid: url("data:image/svg + xml,
+   <svgxmlns="http://www.w3.org/2000/svg"width="12"height="12"fill="none"stroke="#{$form-feedback-icon-invalid-color}"viewBox="0 0 12 12"><circlecx="6"cy="6"r="4.5"/><pathstroke-linejoin="round"d="M5.8 3.6h.4L6 6.5z"/><circlecx="6"cy="8.2"r=".6"fill="#{$form-feedback-icon-invalid-color}"stroke="none"/></svg>") !default;
 
 $form-validation-states: () !default;
 $form-validation-states: map-merge(
    (
-      `valid`: (
-         `color`: $form-feedback-valid-color,
-         `icon`: $form-feedback-icon-valid,
+      "valid": (
+         "color": $form-feedback-valid-color,
+         "icon": $form-feedback-icon-valid,
       ),
-      `invalid`: (
-         `color`: $form-feedback-invalid-color,
-         `icon`: $form-feedback-icon-invalid,
+      "invalid": (
+         "color": $form-feedback-invalid-color,
+         "icon": $form-feedback-icon-invalid,
       ),
    ),
    $form-validation-states
@@ -780,20 +769,16 @@ $navbar-dark-color: rgba($white, 0.5) !default;
 $navbar-dark-hover-color: rgba($white, 0.75) !default;
 $navbar-dark-active-color: $white !default;
 $navbar-dark-disabled-color: rgba($white, 0.25) !default;
-$navbar-dark-toggler-icon-bg: url(
-   `data:image/svg + xml,
-   <svgxmlns="http://www.w3.org/2000/svg"width="30"height="30"viewBox="0 0 30 30"><pathstroke="#{$navbar-dark-color}"stroke-linecap="round"stroke-miterlimit="10"stroke-width="2"d="M4 7h22M4 15h22M4 23h22"/></svg>`,
-) !default;
+$navbar-dark-toggler-icon-bg: url("data:image/svg + xml,
+   <svgxmlns="http://www.w3.org/2000/svg"width="30"height="30"viewBox="0 0 30 30"><pathstroke="#{$navbar-dark-color}"stroke-linecap="round"stroke-miterlimit="10"stroke-width="2"d="M4 7h22M4 15h22M4 23h22"/></svg>") !default;
 $navbar-dark-toggler-border-color: rgba($white, 0.1) !default;
 
 $navbar-light-color: rgba($black, 0.5) !default;
 $navbar-light-hover-color: rgba($black, 0.7) !default;
 $navbar-light-active-color: rgba($black, 0.9) !default;
 $navbar-light-disabled-color: rgba($black, 0.3) !default;
-$navbar-light-toggler-icon-bg: url(
-   `data:image/svg + xml,
-   <svgxmlns="http://www.w3.org/2000/svg"width="30"height="30"viewBox="0 0 30 30"><pathstroke="#{$navbar-light-color}"stroke-linecap="round"stroke-miterlimit="10"stroke-width="2"d="M4 7h22M4 15h22M4 23h22"/></svg>`,
-) !default;
+$navbar-light-toggler-icon-bg: url("data:image/svg + xml,
+   <svgxmlns="http://www.w3.org/2000/svg"width="30"height="30"viewBox="0 0 30 30"><pathstroke="#{$navbar-light-color}"stroke-linecap="round"stroke-miterlimit="10"stroke-width="2"d="M4 7h22M4 15h22M4 23h22"/></svg>") !default;
 $navbar-light-toggler-border-color: rgba($black, 0.1) !default;
 
 $navbar-light-brand-color: $navbar-light-active-color !default;
@@ -1053,7 +1038,7 @@ $progress-bg: $gray-200 !default;
 $progress-border-radius: $border-radius !default;
 $progress-box-shadow: inset 0 0.1rem 0.1rem rgba($black, 0.1) !default;
 $progress-bar-color: $white !default;
-$progress-bar-bg: theme-color(`primary`) !default;
+$progress-bar-bg: theme-color("primary") !default;
 $progress-bar-animation-timing: 1s linear infinite !default;
 $progress-bar-transition: width 0.6s ease !default;
 
@@ -1109,7 +1094,7 @@ $breadcrumb-margin-bottom: 1rem !default;
 $breadcrumb-bg: $gray-200 !default;
 $breadcrumb-divider-color: $gray-600 !default;
 $breadcrumb-active-color: $gray-600 !default;
-$breadcrumb-divider: quote(`/`) !default;
+$breadcrumb-divider: quote("/") !default;
 
 $breadcrumb-border-radius: $border-radius !default;
 
@@ -1133,17 +1118,13 @@ $carousel-caption-color: $white !default;
 
 $carousel-control-icon-width: 20px !default;
 
-$carousel-control-prev-icon-bg: url(
-   `data:image/svg + xml,
-   <svgxmlns="http://www.w3.org/2000/svg"fill="#{$carousel-control-color}"width="8"height="8"viewBox="0 0 8 8"><pathd="M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z"/></svg>`,
-) !default;
-$carousel-control-next-icon-bg: url(
-   `data:image/svg + xml,
-   <svgxmlns="http://www.w3.org/2000/svg"fill="#{$carousel-control-color}"width="8"height="8"viewBox="0 0 8 8"><pathd="M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z"/></svg>`,
-) !default;
+$carousel-control-prev-icon-bg: url("data:image/svg + xml,
+   <svgxmlns="http://www.w3.org/2000/svg"fill="#{$carousel-control-color}"width="8"height="8"viewBox="0 0 8 8"><pathd="M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z"/></svg>") !default;
+$carousel-control-next-icon-bg: url("data:image/svg + xml,
+   <svgxmlns="http://www.w3.org/2000/svg"fill="#{$carousel-control-color}"width="8"height="8"viewBox="0 0 8 8"><pathd="M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z"/></svg>") !default;
 
 $carousel-transition-duration: 0.6s !default;
-$carousel-transition: transform $carousel-transition-duration ease-in-out !default; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+$carousel-transition: transform $carousel-transition-duration ease-in-out !default; // Define transform transition first if using multiple transitions (e.g., "transform 2s ease, opacity .5s ease-out")
 
 // Spinners
 
@@ -1187,4 +1168,4 @@ $user-selects: all, auto, none !default;
 // Printing
 
 $print-page-size: a3 !default;
-$print-body-min-width: map-get($grid-breakpoints, `lg`) !default;
+$print-body-min-width: map-get($grid-breakpoints, "lg") !default;

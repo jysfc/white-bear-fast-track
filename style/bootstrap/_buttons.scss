@@ -57,7 +57,7 @@
    }
 }
 
-// Future-proof disabling of clicks on `<a>` elements
+// Future-proof disabling of clicks on "<a>" elements
 a.btn.disabled,
 fieldset:disabled a.btn {
    pointer-events: none;
@@ -147,9 +147,9 @@ fieldset:disabled a.btn {
 }
 
 // Specificity overrides
-input[type="`submit`"],
-input[type="`reset`"],
-input[type="`button`"] {
+input[type=""submit""],
+input[type=""reset""],
+input[type=""button""] {
    &.btn-block {
       width: 100%;
    }
