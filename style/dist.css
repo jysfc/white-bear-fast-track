@@ -1,10 +1,10 @@
-/* Error: Expected ".
+/* Error: Undefined variable.
  *     ,
- * 575 | $custom-checkbox-indicator-icon-checked: url("data:image/svg + xml,
- *     |                                                                    ^
+ * 692 | $form-feedback-icon-invalid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}' viewBox='0 0 12 12'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>") !default;
+ *     |                                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *     '
- *   style/bootstrap/_variables.scss 575:68  @import
- *   style/master.scss 3:9                   root stylesheet */
+ *   style/bootstrap/_variables.scss 692:139  @import
+ *   style/master.scss 3:9                    root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -14,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: 'Error: Expected ".\a     \2577 \a 575 \2502  $custom-checkbox-indicator-icon-checked: url("data:image/svg + xml,\a     \2502                                                                     ^\a     \2575 \a   style/bootstrap/_variables.scss 575:68  @import\a   style/master.scss 3:9                   root stylesheet';
+  content: "Error: Undefined variable.\a     \2577 \a 692 \2502  $form-feedback-icon-invalid: url(\"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}' viewBox='0 0 12 12'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>\") !default;\a     \2502                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a     \2575 \a   style/bootstrap/_variables.scss 692:139  @import\a   style/master.scss 3:9                    root stylesheet";
 }
