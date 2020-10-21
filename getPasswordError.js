@@ -6,37 +6,22 @@ function getPasswordError(password, email) {
 
    if (password.length === 0) {
       // password input. field blank
-      $("#sign-up-password-input").addClass("is-invalid");
-      $("#sign-up-password-error").removeClass("d-none");
-      $("#sign-up-password-error").html("Please enter your password.");
+      return "Please enter your password.";
    } else if (password.length < 9) {
       // password error msg. less than 9
-      $("#sign-up-password-input").addClass("is-invalid");
-      $("#sign-up-password-error").removeClass("d-none");
-      $("#sign-up-password-error").html(
-         "Your password must be at least 9 characters."
-      );
-   } else {
-      // password success msg
-      $("#sign-up-password-input").removeClass("is-invalid");
-      $("#sign-up-password-input").addClass("is-valid");
-      $("#sign-up-password-error").addClass("d-none");
+      return "Your password must be at least 9 characters.";
    }
    if (password.includes(localEmail) && localEmail.length >= 4) {
       // pw match email error. contain local part
-      $("#sign-up-password-input").addClass("is-invalid");
-      $("#sign-up-password-error").removeClass("d-none");
-      $("#sign-up-password-error").html(
-         "All or part of your email address cannot be used in your password."
-      );
+
+      return "All or part of your email address cannot be used in your password.";
    }
    if (unacceptablePasswords.includes(password.toLowerCase())) {
       // password contain insecure password
-      $("#sign-up-password-input").addClass("is-invalid");
-      $("#sign-up-password-error").removeClass("d-none");
-      $("#sign-up-password-error").html(
-         `Your password contains a commonly used password, "${passwordInput.toLowerCase()}" and can be easily discovered by attackers. Please use something else.`
-      );
+      return `Your password contains a commonly used password, "${passwordInput.toLowerCase()}" and can be easily discovered by attackers. Please use something else.`;
+   } else {
+      // if there are no errors, return empty string
+      return ``;
    }
 
    function getUnacceptablePasswords() {

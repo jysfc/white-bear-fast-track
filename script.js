@@ -130,20 +130,21 @@ $("#lets-go").click(function () {
    console.log(email);
 
    //passing values into functions
-   getPasswordError(password, email); // accepts two strings
+
    const passwordError = getPasswordError(password, email); // getPasswordError should return a string
+   console.log(passwordError);
    if (passwordError !== "") {
-      showError("#sign-up-password-input", passwordError);
+      showError("#sign-up-password", passwordError);
    } else {
-      hideError("#sign-up-password-input", passwordError);
+      hideError("#sign-up-password", passwordError);
    }
 
-   getEmailError(email);
-   const emailError = getEmailError(); // getEmailError should return a string
+   const emailError = getEmailError(email); // getEmailError should return a string
+   console.log(emailError);
    if (emailError !== "") {
-      showError("#sign-up-email-input", emailError);
+      showError("#sign-up-email", emailError);
    } else {
-      hideError("#sign-up-email-input", emailError);
+      hideError("#sign-up-email", emailError);
    }
 
    // Date user signed up
@@ -155,18 +156,20 @@ $("#lets-go").click(function () {
    const yearString = String(year); //converting to string to combine
    const monthString = String(month + 1); //+1 since month is 0-11
    const dateString = String(date);
-   // const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
-   let paddedMonth = monthString;
-   // if month length is single digit
-   if (monthString.length < 2) {
-      // add a 0 in front
-      paddedMonth = `0` + monthString;
-   }
-   // const paddedDate = dateString.padStart(2, `0`);
-   let paddedDate = dateString;
-   if (dateString.length < 2) {
-      paddedDate = `0` + dateString;
-   }
+   const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+   const paddedDate = dateString.padStart(2, `0`);
    const createdAt = yearString + paddedMonth + paddedDate;
    console.log(createdAt);
 });
+
+//email & pw error
+//side effect functions jQuery
+function showError(element, message) {
+   $(`${element}-input`).addClass(`is-invalid`);
+   $(`${element}-error`).html(message);
+}
+
+function hideError(element, message) {
+   $(`${element}-input`).removeClass(`is-invalid`);
+   $(`${element}-error`).html(message);
+}
