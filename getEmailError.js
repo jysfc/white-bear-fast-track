@@ -4,6 +4,6 @@ function getEmailError(email) {
       return `Please enter your email address.`;
    } else {
       // if there are no errors, return empty string
-      return ` `;
+      return ``;
    }
 }

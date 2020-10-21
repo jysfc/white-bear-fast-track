@@ -44,8 +44,8 @@ $(`#lets-go`).click(function () {
    }
 
    // Date user signed up
-   let signedUpDate = new Date(Date.now()); // pulling current day as object
-   // signedUpDate = new Date(2020, 3, 7, 13, 15, 0, 000); // [april 7 2020] testing pad
+   // let signedUpDate = new Date(Date.now()); // pulling current day as object
+   signedUpDate = new Date(2020, 3, 7, 13, 15, 0, 000); // [april 7 2020] testing pad
    const year = signedUpDate.getFullYear(); // pulling prop as number
    const month = signedUpDate.getMonth();
    const date = signedUpDate.getDate();
@@ -53,18 +53,10 @@ $(`#lets-go`).click(function () {
    const monthString = String(month + 1); //+1 since month is 0-11
    const dateString = String(date);
 
-   let paddedMonth = monthString;
-   if (monthString.length < 2) {
-      padleft(monthString);
-   }
-
+   const paddedMonth = padLeft(monthString);
+   const paddedDate = padLeft(dateString);
    // const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
    // const paddedDate = dateString.padStart(2, `0`);
-
-   let paddedDate = dateString;
-   if (dateString.length < 2) {
-      padleft(dateString);
-   }
    const createdAt = yearString + paddedMonth + paddedDate;
    console.log(createdAt);
 });
@@ -77,11 +69,12 @@ function showError(element, message) {
 }
 
 function hideError(element, message) {
+   console.log(element);
    $(`${element}-input`).removeClass(`is-invalid`);
    $(`${element}-error`).html(message);
 }
 function padLeft(str) {
    if (str.length < 2) {
    }
-   return (padLeft = `0` + str);
+   return `0` + str;
 }
