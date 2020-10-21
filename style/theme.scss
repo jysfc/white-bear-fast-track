@@ -129,7 +129,7 @@ $font-weight-bold: 700;
 
 $line-height-base: 1.5;
 
-$font-size-base: 1rem; // Assumes the browser default, typically "16px"
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
 $font-size-lg: $font-size-base * 1.25;
 $font-size-sm: $font-size-base * 0.875;
 
@@ -149,7 +149,7 @@ $link-color: theme-color("primary");
 $link-decoration: none;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration: underline;
-// Darken percentage for links with ".text-*" class (e.g. ".text-success")
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15%;
 
 // CARD
