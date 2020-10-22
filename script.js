@@ -69,7 +69,6 @@ function showError(element, message) {
 }
 
 function hideError(element, message) {
-   console.log(element);
    $(`${element}-input`).removeClass(`is-invalid`);
    $(`${element}-error`).html(message);
 }
