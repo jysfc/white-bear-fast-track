@@ -52,6 +52,10 @@ $(`#lets-go`).click(function () {
    const yearString = String(year); //converting to string to combine
    const monthString = String(month + 1); //+1 since month is 0-11
    const dateString = String(date);
+   // const hour = signedUpDate.getHours();
+   // const minutes = signedUpDate.getMinutes();
+   // const seconds = signedUpDate.getSeconds();
+   const milliseconds = signedUpDate.getMilliseconds();
 
    const paddedMonth = padLeft(monthString);
    const paddedDate = padLeft(dateString);
@@ -59,6 +63,12 @@ $(`#lets-go`).click(function () {
    // const paddedDate = dateString.padStart(2, `0`);
    const createdAt = yearString + paddedMonth + paddedDate;
    console.log(createdAt);
+
+   // unique user id str
+   const uniqueId = getRandomInt(0, 999);
+   const uniqueIdNumAsStr = uniqueId.toFixed(0);
+   const id = uniqueIdNumAsStr + milliseconds;
+   console.log(`The unique user ID is ${id}`);
 });
 
 //email & pw error
@@ -72,8 +82,13 @@ function hideError(element, message) {
    $(`${element}-input`).removeClass(`is-invalid`);
    $(`${element}-error`).html(message);
 }
+//padLeft
 function padLeft(str) {
    if (str.length < 2) {
    }
    return `0` + str;
+}
+// unique user id str
+function getRandomInt(min, max) {
+   return Math.floor(Math.random() * (max + 1 - min) + min);
 }
