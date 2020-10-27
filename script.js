@@ -49,14 +49,15 @@ $(`#lets-go`).click(function () {
    const year = signedUpDate.getFullYear(); // pulling prop as number
    const month = signedUpDate.getMonth();
    const date = signedUpDate.getDate();
-   const yearString = String(year); //converting to string to combine
-   const monthString = String(month + 1); //+1 since month is 0-11
-   const dateString = String(date);
    // const hour = signedUpDate.getHours();
    // const minutes = signedUpDate.getMinutes();
    // const seconds = signedUpDate.getSeconds();
    const milliseconds = signedUpDate.getMilliseconds();
-
+   const yearString = String(year); //converting to string to combine
+   const monthString = String(month + 1); //+1 since month is 0-11
+   const dateString = String(date);
+   const millisecondsString = String(milliseconds);
+   const paddedMilliseconds = padLeft(millisecondsString);
    const paddedMonth = padLeft(monthString);
    const paddedDate = padLeft(dateString);
    // const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
@@ -67,7 +68,7 @@ $(`#lets-go`).click(function () {
    // unique user id str
    const uniqueId = getRandomInt(0, 999);
    const uniqueIdNumAsStr = uniqueId.toFixed(0);
-   const id = uniqueIdNumAsStr + milliseconds;
+   const id = uniqueIdNumAsStr + paddedMilliseconds;
    console.log(`The unique user ID is ${id}`);
 });
 
