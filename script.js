@@ -44,8 +44,8 @@ $(`#lets-go`).click(function () {
    }
 
    // Date user signed up
-   // let signedUpDate = new Date(Date.now()); // pulling current day as object
-   signedUpDate = new Date(2020, 3, 7, 13, 15, 0, 000); // [april 7 2020] testing pad
+   let signedUpDate = new Date(Date.now()); // pulling current day as object
+   // signedUpDate = new Date(2020, 3, 7, 13, 15, 0, 000); // [april 7 2020] testing pad
    const year = signedUpDate.getFullYear(); // pulling prop as number
    const month = signedUpDate.getMonth();
    const date = signedUpDate.getDate();
@@ -57,7 +57,7 @@ $(`#lets-go`).click(function () {
    const monthString = String(month + 1); //+1 since month is 0-11
    const dateString = String(date);
    const millisecondsString = String(milliseconds);
-   const paddedMilliseconds = padLeft(millisecondsString);
+   const paddedMilliseconds = millisecondsString.padStart(3, `0`);
    const paddedMonth = padLeft(monthString);
    const paddedDate = padLeft(dateString);
    // const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
@@ -70,6 +70,13 @@ $(`#lets-go`).click(function () {
    const uniqueIdNumAsStr = uniqueId.toFixed(0);
    const id = uniqueIdNumAsStr + paddedMilliseconds;
    console.log(`The unique user ID is ${id}`);
+
+   // array of userProps
+   const userProps = [emailError, passwordError, createdAt, id];
+   if ((emailError, passwordError !== ``)) {
+      console.log(userProps);
+      return userProps;
+   }
 });
 
 //email & pw error
@@ -83,11 +90,31 @@ function hideError(element, message) {
    $(`${element}-input`).removeClass(`is-invalid`);
    $(`${element}-error`).html(message);
 }
-//padLeft
+//padLeft for created at
 function padLeft(str) {
    if (str.length < 2) {
+      return `0` + str;
+   } else {
+      return str;
    }
-   return `0` + str;
+}
+
+//padStart for id
+function padStart(num, width, char) {
+   const numAsStr = String(num); //convert num to str to add zeros
+   let padding = ``;
+   for (let i = 0; i < width; i++) {
+      padding += char;
+   }
+   const concattedStr = padding + numAsStr; // 000000 + 6
+
+   if (numAsStr.length >= width) {
+      console.log(`${numAsStr.length} is >= the width of ${width}`); // to make sure data isnt cut off
+      return numAsStr; // return a string
+   }
+
+   const slicedStr = concattedStr.slice(-width);
+   return slicedStr; // returns a sliced string
 }
 // unique user id str
 function getRandomInt(min, max) {
