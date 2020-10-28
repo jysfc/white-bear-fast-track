@@ -26,7 +26,6 @@ $(`#lets-go`).click(function () {
    const password = $(`#sign-up-password-input`).val();
 
    //passing values into functions
-
    const passwordError = getPasswordError(password, email); // getPasswordError should return a string
    console.log(passwordError);
    if (passwordError !== ``) {
@@ -72,10 +71,28 @@ $(`#lets-go`).click(function () {
    console.log(`The unique user ID is ${id}`);
 
    // array of userProps
-   const userProps = [emailError, passwordError, createdAt, id];
+   // const userProps = [emailError, passwordError, createdAt, id];
+   // if ((emailError, passwordError !== ``)) {
+   //    console.log(userProps);
+   //    return userProps;
+   // }
+
+   // user object
+   const user = {
+      email: email,
+      password: password,
+      createdAt: getCreatedAt(),
+      id: getId(),
+   };
    if ((emailError, passwordError !== ``)) {
-      console.log(userProps);
-      return userProps;
+      console.log(user);
+      return user;
+   }
+   function getCreatedAt() {
+      return createdAt;
+   }
+   function getId() {
+      return id;
    }
 });
 
