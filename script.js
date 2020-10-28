@@ -42,6 +42,11 @@ $(`#lets-go`).click(function () {
       hideError(`#sign-up-email`, emailError);
    }
 
+   // email TLD
+   const emailTopLevelDomain = email.split(`.`); // mike@gmail, com
+   const lastIndexOfEmail = emailTopLevelDomain[1];
+   // console.log(lastIndexOfEmail);
+
    // Date user signed up
    let signedUpDate = new Date(Date.now()); // pulling current day as object
    // signedUpDate = new Date(2020, 3, 7, 13, 15, 0, 000); // [april 7 2020] testing pad
@@ -83,6 +88,7 @@ $(`#lets-go`).click(function () {
       password: password,
       createdAt: getCreatedAt(),
       id: getId(),
+      emailTId: getTld(), // a string like `com` or `org` or `edu`
    };
    if ((emailError, passwordError !== ``)) {
       console.log(user);
@@ -93,6 +99,9 @@ $(`#lets-go`).click(function () {
    }
    function getId() {
       return id;
+   }
+   function getTld() {
+      return lastIndexOfEmail;
    }
 });
 
