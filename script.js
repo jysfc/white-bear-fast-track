@@ -62,25 +62,19 @@ $(`#lets-go`).click(function () {
    const dateString = String(date);
    const millisecondsString = String(milliseconds);
    const paddedMilliseconds = millisecondsString.padStart(3, `0`);
-   const paddedMonth = padLeft(monthString);
+   const paddedMonth = padStart(monthString, 2, `0`);
    const paddedDate = padLeft(dateString);
    // const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
    // const paddedDate = dateString.padStart(2, `0`);
    const createdAt = yearString + paddedMonth + paddedDate;
-   console.log(createdAt);
+   console.log(`login created at ${createdAt}`);
 
    // unique user id str
    const uniqueId = getRandomInt(0, 999);
    const uniqueIdNumAsStr = uniqueId.toFixed(0);
+
    const id = uniqueIdNumAsStr + paddedMilliseconds;
    console.log(`The unique user ID is ${id}`);
-
-   // array of userProps
-   // const userProps = [emailError, passwordError, createdAt, id];
-   // if ((emailError, passwordError !== ``)) {
-   //    console.log(userProps);
-   //    return userProps;
-   // }
 
    // user object
    const user = {
@@ -89,6 +83,27 @@ $(`#lets-go`).click(function () {
       createdAt: getCreatedAt(),
       id: getId(),
       emailTId: getTld(), // a string like `com` or `org` or `edu`
+      socialProfiles: [
+         {
+            site: "facebook",
+            siteId: "530c2716-36e2-4a80-93b7-0e8483d629e1",
+            username: "",
+            image: {
+               sm: "",
+               orig: "",
+            },
+         },
+         {
+            site: "twitter",
+            siteId: "79023b4d-57a2-406b-8efe-bda47fb1696c",
+            username: "",
+            image: {
+               sm: "",
+               md: "",
+               orig: "",
+            },
+         },
+      ],
    };
    if ((emailError, passwordError !== ``)) {
       console.log(user);
@@ -103,10 +118,21 @@ $(`#lets-go`).click(function () {
    function getTld() {
       return lastIndexOfEmail;
    }
+
+   // new User(activeUser)
+   const activeUser = { ...user };
+   activeUser.isActive = true;
+   activeUser.createdAt = Date.now();
+   delete activeUser.socialProfiles[0].image.sm;
+   delete activeUser.socialProfiles[1].image.sm;
+   delete activeUser.socialProfiles[1].image.md;
+   console.log(activeUser);
 });
 
-//email & pw error
-//side effect functions jQuery
+/* functions start here */
+
+// email & pw error
+// side effect functions jQuery
 function showError(element, message) {
    $(`${element}-input`).addClass(`is-invalid`);
    $(`${element}-error`).html(message);
@@ -116,7 +142,7 @@ function hideError(element, message) {
    $(`${element}-input`).removeClass(`is-invalid`);
    $(`${element}-error`).html(message);
 }
-//padLeft for created at
+// padLeft for created at
 function padLeft(str) {
    if (str.length < 2) {
       return `0` + str;
@@ -125,12 +151,13 @@ function padLeft(str) {
    }
 }
 
-//padStart for id
+// padStart for id
 function padStart(num, width, char) {
-   const numAsStr = String(num); //convert num to str to add zeros
+   const numAsStr = String(num); //convert num to str to pad
    let padding = ``;
+   // index less than width, pad the char
    for (let i = 0; i < width; i++) {
-      padding += char;
+      padding += char; // += padding = padding + char (additional assignment operator)
    }
    const concattedStr = padding + numAsStr; // 000000 + 6
 
@@ -138,8 +165,7 @@ function padStart(num, width, char) {
       console.log(`${numAsStr.length} is >= the width of ${width}`); // to make sure data isnt cut off
       return numAsStr; // return a string
    }
-
-   const slicedStr = concattedStr.slice(-width);
+   const slicedStr = concattedStr.slice(-width); //generate padding then taking data from the right.
    return slicedStr; // returns a sliced string
 }
 // unique user id str
