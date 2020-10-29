@@ -120,16 +120,46 @@ $(`#lets-go`).click(function () {
    }
 
    // new User(activeUser)
-   const activeUser = { ...user };
+
+   const activeUser = deepCopy(user);
    activeUser.isActive = true;
    activeUser.createdAt = Date.now();
-   delete activeUser.socialProfiles[0].image.sm;
-   delete activeUser.socialProfiles[1].image.sm;
-   delete activeUser.socialProfiles[1].image.md;
    console.log(activeUser);
+
+   for (let i = 0; i < activeUser.socialProfiles.length; i++) {
+      const socialProfile = activeUser.socialProfiles[i];
+      delete socialProfile.image.sm;
+      delete socialProfile.image.md;
+      console.log("-----------------");
+      console.log(activeUser.socialProfiles);
+   }
+
+   // otherwise show the social profiles
+   console.log("-----------------");
+   console.log(user.socialProfiles);
+
+   // delete activeUser.socialProfiles[0].image.sm;
+   // delete activeUser.socialProfiles[1].image.sm;
+   // delete activeUser.socialProfiles[1].image.md;
 });
 
 /* functions start here */
+
+// deep copy
+function deepCopy(obj) {
+   const str = JSON.stringify(obj);
+   return safelyParseJson(str);
+}
+// to prevent crashing
+function safelyParseJson(str) {
+   try {
+      JSON.parse(str);
+   } catch {
+      // if error return the original value
+      return str;
+   }
+   return JSON.parse(str);
+}
 
 // email & pw error
 // side effect functions jQuery
