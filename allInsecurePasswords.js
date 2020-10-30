@@ -97,9 +97,7 @@ const allInsecurePasswords = [
 ];
 
 const formattedAllInsecurePasswords = allInsecurePasswords.map((password) => {
-   const newAllInsecurePasswords = { ...password };
-   delete newAllInsecurePasswords.id;
-   newAllInsecurePasswords.text;
+   const newAllInsecurePasswords = password.text;
    return newAllInsecurePasswords;
 });
 // console.log(formattedAllInsecurePasswords);
