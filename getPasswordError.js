@@ -58,21 +58,34 @@ function getPasswordError(password, email) {
       );
       // console.log(`Final list of unacceptable passwords:`,hasBooleansUnacceptablePasswords);
 
-      //for loop
+      // foreach to replace forloop
       let unacceptableStringPasswords = [];
-      for (let i = 0; i < hasBooleansUnacceptablePasswords.length; i++) {
-         const value = hasBooleansUnacceptablePasswords[i];
-         // keeping numbers or string and leave boolean out https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
-         // ||= or , &&= and, de morgans law
+      hasBooleansUnacceptablePasswords.forEach((value) => {
          if (typeof value !== `boolean`) {
-            // convert (numbers) to strings()
             const numAsString = String(value);
             unacceptableStringPasswords = unacceptableStringPasswords.concat(
                numAsString
             );
-            // console.log(unacceptableStringPasswords);
          }
-      }
+         console.log(unacceptableStringPasswords);
+      });
+
+      //for loop
+      // let unacceptableStringPasswords = [];
+      // for (let i = 0; i < hasBooleansUnacceptablePasswords.length; i++) {
+      //    const value = hasBooleansUnacceptablePasswords[i];
+      //    // keeping numbers or string and leave boolean out https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+      //    // ||= or , &&= and, de morgans law
+      //    if (typeof value !== `boolean`) {
+      //       // convert (numbers) to strings()
+      //       const numAsString = String(value);
+      //       unacceptableStringPasswords = unacceptableStringPasswords.concat(
+      //          numAsString
+      //       );
+      //       console.log(unacceptableStringPasswords);
+      //    }
+      // }
+
       // reverse string
       let unacceptableReversedPasswords = [];
       for (let i = 0; i < unacceptableStringPasswords.length; i++) {
