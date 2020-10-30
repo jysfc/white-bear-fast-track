@@ -95,3 +95,12 @@ const allInsecurePasswords = [
    { id: 94, text: `matrix` },
    { id: 95, text: `minecraft` },
 ];
+
+const formattedAllInsecurePasswords = allInsecurePasswords.map((password) => {
+   const newAllInsecurePasswords = { ...password };
+   delete newAllInsecurePasswords.id;
+   newAllInsecurePasswords.text;
+   return newAllInsecurePasswords;
+});
+// console.log(formattedAllInsecurePasswords);
+// console.log(allInsecurePasswords);
