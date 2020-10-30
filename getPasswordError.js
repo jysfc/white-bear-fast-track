@@ -67,7 +67,7 @@ function getPasswordError(password, email) {
                numAsString
             );
          }
-         console.log(unacceptableStringPasswords);
+         // console.log(unacceptableStringPasswords);
       });
 
       //for loop

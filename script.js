@@ -126,21 +126,25 @@ $(`#lets-go`).click(function () {
    activeUser.createdAt = Date.now();
    console.log(activeUser);
 
-   for (let i = 0; i < activeUser.socialProfiles.length; i++) {
-      const socialProfile = activeUser.socialProfiles[i];
+   // foreach to replace forloop
+   activeUser.socialProfiles.forEach((socialProfile) => {
       delete socialProfile.image.sm;
       delete socialProfile.image.md;
       console.log("-----------------");
       console.log(activeUser.socialProfiles);
-   }
+   });
+
+   // for (let i = 0; i < activeUser.socialProfiles.length; i++) {
+   //    const socialProfile = activeUser.socialProfiles[i];
+   //    delete socialProfile.image.sm;
+   //    delete socialProfile.image.md;
+   //    console.log("-----------------");
+   //    console.log(activeUser.socialProfiles);
+   // }
 
    // otherwise show the social profiles
    console.log("-----------------");
    console.log(user.socialProfiles);
-
-   // delete activeUser.socialProfiles[0].image.sm;
-   // delete activeUser.socialProfiles[1].image.sm;
-   // delete activeUser.socialProfiles[1].image.md;
 });
 
 /* functions start here */
@@ -185,7 +189,21 @@ function padLeft(str) {
 function padStart(num, width, char) {
    const numAsStr = String(num); //convert num to str to pad
    let padding = ``;
+
    // index less than width, pad the char
+
+   // foreach to replace forloop
+   // ???.forEach((concattedStr) => {
+   //    if (concattedStr.length >= width) {
+   //       padding += char;
+   //       const concattedStr = padding + numAsStr;
+   //       console.log(`${concattedStr.length} is >= the width of ${width}`); // to make sure data isnt cut off
+   //       return numAsStr; // return a string
+   //    }
+   //    const slicedStr = concattedStr.slice(-width); //generate padding then taking data from the right.
+   //    return slicedStr; // returns a sliced string
+   // });
+
    for (let i = 0; i < width; i++) {
       padding += char; // += padding = padding + char (additional assignment operator)
    }
