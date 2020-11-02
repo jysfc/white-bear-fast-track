@@ -53,9 +53,6 @@ $(`#lets-go`).click(function () {
    const year = signedUpDate.getFullYear(); // pulling prop as number
    const month = signedUpDate.getMonth();
    const date = signedUpDate.getDate();
-   // const hour = signedUpDate.getHours();
-   // const minutes = signedUpDate.getMinutes();
-   // const seconds = signedUpDate.getSeconds();
    const milliseconds = signedUpDate.getMilliseconds();
    const yearString = String(year); //converting to string to combine
    const monthString = String(month + 1); //+1 since month is 0-11
@@ -64,8 +61,6 @@ $(`#lets-go`).click(function () {
    const paddedMilliseconds = millisecondsString.padStart(3, `0`);
    const paddedMonth = padStart(monthString, 2, `0`);
    const paddedDate = padLeft(dateString);
-   // const paddedMonth = monthString.padStart(2, `0`); // add padStart to make add 0 in front of < 10 digit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
-   // const paddedDate = dateString.padStart(2, `0`);
    const createdAt = yearString + paddedMonth + paddedDate;
    console.log(`login created at ${createdAt}`);
 
@@ -120,28 +115,10 @@ $(`#lets-go`).click(function () {
    }
 
    // new User(activeUser)
-
    const activeUser = deepCopy(user);
    activeUser.isActive = true;
    activeUser.createdAt = Date.now();
    console.log(activeUser);
-
-   // map to replace foreach
-   // const filteredImgUsers = activeUser.map((activeUser)) => {
-   //    const newActiveUser = {
-   //    delete socialProfile.image.sm;
-   //    delete socialProfile.image.md;
-   //    };return filteredImgUsers;
-   // });
-
-   // const filteredImgUsers = activeUser.map((activeUser) => {
-   //    const newActiveUser = { ...activeUser };
-   //    delete socialProfile.image.sm;
-   //    delete socialProfile.image.md;
-   //    return filteredImgUsers;
-   // });
-   // console.log("-----------------");
-   // console.log(newActiveUser.socialProfiles);
 
    // foreach to replace forloop
    activeUser.socialProfiles.forEach((socialProfile) => {
@@ -150,31 +127,38 @@ $(`#lets-go`).click(function () {
       console.log("-----------------");
       console.log(activeUser.socialProfiles);
    });
-
-   // for (let i = 0; i < activeUser.socialProfiles.length; i++) {
-   //    const socialProfile = activeUser.socialProfiles[i];
-   //    delete socialProfile.image.sm;
-   //    delete socialProfile.image.md;
-   //    console.log("-----------------");
-   //    console.log(activeUser.socialProfiles);
-   // }
-
    // otherwise show the social profiles
    console.log("-----------------");
    console.log(user.socialProfiles);
 
-   // normalize user object
-   // const users = [user, activeUser];
-   // const normalizedUsers = users.map((users) => {
-   //    const newUsers = { ...users };
-   //    delete newUsers.emailTId;
-   //    return normalizedUsers;
-   // });
-
-   // console.log(normalizedUsers);
+   // normalizing user object
+   const users = [user, activeUser];
+   const currentUsers = users
+      .map((user) => {
+         const newUserList = {
+            id: user.id,
+            email: user.email,
+            password: user.password,
+            createdAt: user.createdAt,
+            isActive: getIsActive(user.isActive),
+         };
+         return newUserList;
+      })
+      .filter((user) => {
+         // only return users with a isActive acct
+         return user.isActive === true;
+      });
+   console.log(currentUsers);
 });
 
 /* functions start here */
+
+function getIsActive(status) {
+   if (status === undefined) {
+      return (userIsActive = false);
+   }
+   return status;
+}
 
 // deep copy
 function deepCopy(obj) {
