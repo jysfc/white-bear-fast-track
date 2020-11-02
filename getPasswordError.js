@@ -71,23 +71,11 @@ function getPasswordError(password, email) {
          // console.log(unacceptableStringPasswords);
       });
 
-      // map & filter to replace foreach
+      // filter to replace foreach
       const filteredUnacceptablePasswords = unacceptableStringPasswords.filter(
-         (unacceptableStringPasswords) =>
-            unacceptableStringPasswords.length >= 9
+         (unacceptableStringPassword) => unacceptableStringPassword.length >= 9
       );
       console.log(filteredUnacceptablePasswords);
-      // function filteredUnacceptablePasswords(hasBooleansUnacceptablePasswords) {
-      //    return hasBooleansUnacceptablePasswords.filter(
-      //       (filteredUnacceptablePasswords) =>
-      //          filteredUnacceptablePasswords.length >= 9
-      //    );
-      // }
-      // let unacceptableStringPasswords = [];
-      // const numAsString = String(filteredUnacceptablePasswords);
-      // unacceptableStringPasswords = unacceptableStringPasswords.concat(
-      //    numAsString
-      // );
 
       //for loop
       // let unacceptableStringPasswords = [];
