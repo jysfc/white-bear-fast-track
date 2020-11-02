@@ -6,22 +6,14 @@ function getPasswordError(password, email) {
 
    //every to question data
    const isPwGreaterThanNine = unacceptablePasswords.every((password) => {
-      const passwordList = unacceptablePasswords.map((password) => {
-         return password.site;
-      });
-      return unacceptablePasswords.length >= 9;
+      return password.length >= 9;
    });
-
    console.log(`Is every password >=9 ?`, isPwGreaterThanNine);
 
    //some
    const hasQwerty = unacceptablePasswords.some((password) => {
-      const passwordList = unacceptablePasswords.map((password) => {
-         return password.site;
-      });
-      return unacceptablePasswords.includes(`qwerty`);
+      return password.includes(`qwerty`);
    });
-
    console.log(`Do we have the password (qwerty) ?`, hasQwerty);
 
    if (password.length === 0) {

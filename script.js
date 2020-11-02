@@ -135,14 +135,13 @@ $(`#lets-go`).click(function () {
    const users = [user, activeUser];
    const currentUsers = users
       .map((user) => {
-         const newUserList = {
+         return {
             id: user.id,
             email: user.email,
             password: user.password,
             createdAt: user.createdAt,
             isActive: getIsActive(user.isActive),
          };
-         return newUserList;
       })
       .filter((user) => {
          // only return users with a isActive acct
@@ -155,7 +154,7 @@ $(`#lets-go`).click(function () {
 
 function getIsActive(status) {
    if (status === undefined) {
-      return (userIsActive = false);
+      return false;
    }
    return status;
 }
