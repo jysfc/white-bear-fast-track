@@ -192,18 +192,6 @@ function padStart(num, width, char) {
 
    // index less than width, pad the char
 
-   // foreach to replace forloop
-   // ???.forEach((concattedStr) => {
-   //    if (concattedStr.length >= width) {
-   //       padding += char;
-   //       const concattedStr = padding + numAsStr;
-   //       console.log(`${concattedStr.length} is >= the width of ${width}`); // to make sure data isnt cut off
-   //       return numAsStr; // return a string
-   //    }
-   //    const slicedStr = concattedStr.slice(-width); //generate padding then taking data from the right.
-   //    return slicedStr; // returns a sliced string
-   // });
-
    for (let i = 0; i < width; i++) {
       padding += char; // += padding = padding + char (additional assignment operator)
    }

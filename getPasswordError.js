@@ -71,6 +71,24 @@ function getPasswordError(password, email) {
          // console.log(unacceptableStringPasswords);
       });
 
+      // map & filter to replace foreach
+      const filteredUnacceptablePasswords = unacceptableStringPasswords.filter(
+         (unacceptableStringPasswords) =>
+            unacceptableStringPasswords.length >= 9
+      );
+      console.log(filteredUnacceptablePasswords);
+      // function filteredUnacceptablePasswords(hasBooleansUnacceptablePasswords) {
+      //    return hasBooleansUnacceptablePasswords.filter(
+      //       (filteredUnacceptablePasswords) =>
+      //          filteredUnacceptablePasswords.length >= 9
+      //    );
+      // }
+      // let unacceptableStringPasswords = [];
+      // const numAsString = String(filteredUnacceptablePasswords);
+      // unacceptableStringPasswords = unacceptableStringPasswords.concat(
+      //    numAsString
+      // );
+
       //for loop
       // let unacceptableStringPasswords = [];
       // for (let i = 0; i < hasBooleansUnacceptablePasswords.length; i++) {
@@ -89,8 +107,8 @@ function getPasswordError(password, email) {
 
       // reverse string
       let unacceptableReversedPasswords = [];
-      for (let i = 0; i < unacceptableStringPasswords.length; i++) {
-         const password = unacceptableStringPasswords[i];
+      for (let i = 0; i < filteredUnacceptablePasswords.length; i++) {
+         const password = filteredUnacceptablePasswords[i];
          const chars = password.split(``); // string to array of char
          // console.log(unacceptablePasswordArrays);
          const copyOfChars = [...chars];
@@ -103,7 +121,7 @@ function getPasswordError(password, email) {
       }
       // combine both original & reversed
       const strAndRevUnacceptablePasswords = [
-         ...unacceptableStringPasswords,
+         ...filteredUnacceptablePasswords,
          ...unacceptableReversedPasswords,
       ];
       // normalizing
