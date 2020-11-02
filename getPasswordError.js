@@ -4,6 +4,26 @@ function getPasswordError(password, email) {
    const unacceptablePasswords = getUnacceptablePasswords(); // return a list
    console.log(unacceptablePasswords);
 
+   //every to question data
+   const isPwGreaterThanNine = unacceptablePasswords.every((password) => {
+      const passwordList = unacceptablePasswords.map((password) => {
+         return password.site;
+      });
+      return unacceptablePasswords.length >= 9;
+   });
+
+   console.log(`Is every password >=9 ?`, isPwGreaterThanNine);
+
+   //some
+   const hasQwerty = unacceptablePasswords.some((password) => {
+      const passwordList = unacceptablePasswords.map((password) => {
+         return password.site;
+      });
+      return unacceptablePasswords.includes(`qwerty`);
+   });
+
+   console.log(`Do we have the password (qwerty) ?`, hasQwerty);
+
    if (password.length === 0) {
       // password input. field blank
       return `Please enter your password.`;
@@ -71,12 +91,6 @@ function getPasswordError(password, email) {
          // console.log(unacceptableStringPasswords);
       });
 
-      // filter to replace foreach
-      const filteredUnacceptablePasswords = unacceptableStringPasswords.filter(
-         (unacceptableStringPassword) => unacceptableStringPassword.length >= 9
-      );
-      console.log(filteredUnacceptablePasswords);
-
       //for loop
       // let unacceptableStringPasswords = [];
       // for (let i = 0; i < hasBooleansUnacceptablePasswords.length; i++) {
@@ -92,6 +106,11 @@ function getPasswordError(password, email) {
       //       console.log(unacceptableStringPasswords);
       //    }
       // }
+      // filter to replace foreach
+      const filteredUnacceptablePasswords = unacceptableStringPasswords.filter(
+         (unacceptableStringPassword) => unacceptableStringPassword.length >= 9
+      );
+      console.log(filteredUnacceptablePasswords);
 
       // reverse string
       let unacceptableReversedPasswords = [];
