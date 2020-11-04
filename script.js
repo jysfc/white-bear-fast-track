@@ -152,6 +152,7 @@ $(`#lets-go`).click(function () {
 
 /* functions start here */
 
+// getIsActive
 function getIsActive(status) {
    if (status === undefined) {
       return false;

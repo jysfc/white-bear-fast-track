@@ -116,7 +116,7 @@ function getPasswordError(password, email) {
          unacceptableReversedPasswords = unacceptableReversedPasswords.concat(
             reversedPassword
          );
-         console.log(unacceptableReversedPasswords);
+         // console.log(unacceptableReversedPasswords);
       }
       // combine both original & reversed
       const strAndRevUnacceptablePasswords = [
