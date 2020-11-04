@@ -18,7 +18,7 @@ function getPasswordError(password, email) {
 
    if (password.length === 0) {
       // password input. field blank
-      return `Please enter your password.`;
+      return `Please create a password.`;
    } else if (password.length < 9) {
       // password error msg. less than 9
       return `Your password must be at least 9 characters.`;
@@ -30,7 +30,7 @@ function getPasswordError(password, email) {
    }
    if (unacceptablePasswords.includes(password.toLowerCase())) {
       // password contain insecure password
-      return `Your password contains a commonly used password, "${passwordInput.toLowerCase()}" and can be easily discovered by attackers. Please use something else.`;
+      return `Your password contains a commonly used password, "${password.toLowerCase()}" and can be easily discovered by attackers. Please use something else.`;
    } else {
       // if there are no errors, return empty string
       return ``;

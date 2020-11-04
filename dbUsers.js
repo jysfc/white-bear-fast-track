@@ -39,13 +39,13 @@ dbUsers.forEach((newestUser) => {
    return mostRecentSignUpDate;
    //    Math.max(...dbUsers.createdAt);
 });
-console.log(`using forEach:`, mostRecentSignUpDate);
+// console.log(`using forEach:`, mostRecentSignUpDate);
 
 // using find to get user
 const mostRecentSignUp = dbUsers.find((user) => {
    return user.createdAt === mostRecentSignUpDate;
 });
-console.log(`using find to locate user:`, mostRecentSignUp);
+// console.log(`using find to locate user:`, mostRecentSignUp);
 
 // .find((dbUser) => {
 //     //   return Math.max(dbUser.createdAt);
@@ -60,10 +60,10 @@ const dupeUserIndex = dbUsers
       return arr.indexOf(id) !== i;
    });
 
-console.log("Remove this dupe: ", dbUsers[dupeUserIndex]);
+// console.log("Remove this dupe: ", dbUsers[dupeUserIndex]);
 
 // filter to remove dupe
 const uniqDbUsers = dbUsers.filter((user, i, arr) => {
    return arr.indexOf(user) !== dupeUserIndex;
 });
-console.log(uniqDbUsers);
+// console.log(uniqDbUsers);

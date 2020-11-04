@@ -127,6 +127,15 @@ $(`#lets-go`).click(function () {
       console.log("-----------------");
       console.log(activeUser.socialProfiles);
    });
+
+   // for (let i = 0; i < activeUser.socialProfiles.length; i++) {
+   //    const socialProfile = activeUser.socialProfiles[i];
+   //    delete socialProfile.image.sm;
+   //    delete socialProfile.image.md;
+   //    console.log("-----------------");
+   //    console.log(activeUser.socialProfiles);
+   // }
+
    // otherwise show the social profiles
    console.log("-----------------");
    console.log(user.socialProfiles);
@@ -159,7 +168,6 @@ function getIsActive(status) {
    }
    return status;
 }
-
 // deep copy
 function deepCopy(obj) {
    const str = JSON.stringify(obj);
@@ -175,7 +183,6 @@ function safelyParseJson(str) {
    }
    return JSON.parse(str);
 }
-
 // email & pw error
 // side effect functions jQuery
 function showError(element, message) {
