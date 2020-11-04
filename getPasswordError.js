@@ -102,7 +102,7 @@ function getPasswordError(password, email) {
       const filteredUnacceptablePasswords = unacceptableStringPasswords.filter(
          (unacceptableStringPassword) => unacceptableStringPassword.length >= 9
       );
-      console.log(filteredUnacceptablePasswords);
+      // console.log(filteredUnacceptablePasswords);
 
       // reverse string
       let unacceptableReversedPasswords = [];
@@ -116,7 +116,7 @@ function getPasswordError(password, email) {
          unacceptableReversedPasswords = unacceptableReversedPasswords.concat(
             reversedPassword
          );
-         // console.log(unacceptableReversedPasswords);
+         console.log(unacceptableReversedPasswords);
       }
       // combine both original & reversed
       const strAndRevUnacceptablePasswords = [

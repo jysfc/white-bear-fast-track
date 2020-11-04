@@ -29,17 +29,27 @@ const dbUsers = [
    },
 ];
 
-// var mostRecentSignUpDate = 0;
-// dbUsers.forEach((newestUser) => {
-//    Math.max(...dbUsers.createdAt);
-//    console.log(newestUser);
-// });
+// const dbUsers = ["003498", "112076", "099001", "003498"];
 
-// using find
-const mostRecentSignUp = dbUsers.find((dbUser) => {
-   return Math.max(dbUser.createdAt);
+var mostRecentSignUpDate = 0;
+dbUsers.forEach((newestUser) => {
+   if (newestUser.createdAt > mostRecentSignUpDate) {
+      mostRecentSignUpDate = newestUser.createdAt;
+   }
+   return mostRecentSignUpDate;
+   //    Math.max(...dbUsers.createdAt);
 });
-// console.log(mostRecentSignUp);
+console.log(`using forEach:`, mostRecentSignUpDate);
+
+// using find to get user
+const mostRecentSignUp = dbUsers.find((user) => {
+   return user.createdAt === mostRecentSignUpDate;
+});
+console.log(`using find to locate user:`, mostRecentSignUp);
+
+// .find((dbUser) => {
+//     //   return Math.max(dbUser.createdAt);
+// });
 
 // findindex of dupe
 const dupeUserIndex = dbUsers
@@ -50,10 +60,10 @@ const dupeUserIndex = dbUsers
       return arr.indexOf(id) !== i;
    });
 
-console.log("Remove this: ", dbUsers[dupeUserIndex]);
+console.log("Remove this dupe: ", dbUsers[dupeUserIndex]);
 
 // filter to remove dupe
-uniqDbUsers = dbUsers.filter((dbUser) => {
-   return dbUser.indexOf === dupeUserIndex;
+const uniqDbUsers = dbUsers.filter((user, i, arr) => {
+   return arr.indexOf(user) !== dupeUserIndex;
 });
 console.log(uniqDbUsers);
